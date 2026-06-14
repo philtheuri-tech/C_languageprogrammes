@@ -392,32 +392,80 @@ int main()
      default:
          printf("Please enter a Valid character!(M, T, W, R, F, S,U)");
      }*/
-    float price = 10.00;
-    bool isStudent = false; // 10% discount
-    bool isSenior = false;  // 20 % discount
-    // to avoid the compiler having wrong calculations we use the nested if stt
-    if (isStudent)
-    {
-        if (isSenior)
-        {
-            printf("You get a student discount of 10%\n");
-            printf("You get a senior discount of 20%\n");
-            price *= 0.7;
-        }
-        else
-        {
-            printf("You get a student discount of 10%");
-        }
-    }
-    else
-    {
-        if (isSenior)
-        {
-            printf("You get a senior discount of 10%\n");
-            price *= 0.8;
-        }
-    }
+    /* float price = 10.00;
+     bool isStudent = false; // 10% discount
+     bool isSenior = false;  // 20 % discount
+     // to avoid the compiler having wrong calculations we use the nested if stt
+     if (isStudent)
+     {
+         if (isSenior)
+         {
+             printf("You get a student discount of 10%\n");
+             printf("You get a senior discount of 20%\n");
+             price *= 0.7;
+         }
+         else
+         {
+             printf("You get a student discount of 10%");
+         }
+     }
+     else
+     {
+         if (isSenior)
+         {
+             printf("You get a senior discount of 10%\n");
+             price *= 0.8;
+         }
+     }
 
-    printf("The price of a ticket is: $%.2f\n", price);
+     printf("The price of a ticket is: $%.2f\n", price);*/
+    // calculator program for both the nestes if statement as well as the switch statement
+
+    char operator = '\0';
+    double num1 = 0.0, num2 = 0.0, result = 0.0;
+
+    printf("Enter the first number: ");
+    scanf("%lf", &num1);
+    do
+    {
+        printf("Enter the arithmetic operator(+, -, *, /): ");
+        scanf(" %c", &operator); // The space before%c is used to clear the \n in the input buffer
+        if (operator != '+' && operator != '/' && operator != '-' && operator != '*')
+        {
+            printf("invalid operator!\n");
+        }
+    } while (operator != '+' && operator != '/' && operator != '-' && operator != '*');
+
+    printf("Enter the second number: ");
+    scanf("%lf", &num2);
+    switch (operator)
+    {
+    case '+':
+        result = num1 + num2;
+        break;
+    case '-':
+        result = num1 - num2;
+        break;
+    case '/':
+        do
+        {
+            if (num2 == 0)
+            {
+                printf("you can't divide by  zero!\n");
+                printf("Enter the second number again: ");
+                scanf("%lf", &num2);
+            }
+        } while (num2 == 0);
+
+        result = num1 / num2;
+
+        break;
+    case '*':
+        result = num1 * num2;
+        break;
+    default:
+        printf("invalid! Enter an arithmetic operator('*', '+', '-', '/')\n");
+    }
+    printf("The result is: %.4lf", result);
     return 0;
 }
