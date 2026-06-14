@@ -494,7 +494,7 @@ else
 // FUNCTIONS- This is a reusable section of code that can be "invoked"
 //              or called
 // Arguments can be sent to a function so that it can use them
-void happyBirthday(char name[], int yearsOld) // you need to call the parameters that will be replaced
+/*void happyBirthday(char name[], int yearsOld) // you need to call the parameters that will be replaced
 {                                             // thats why we added the char name and age
     printf("\n Happy birthday to you!");
     printf("\n Happy birthday to you!");
@@ -515,6 +515,21 @@ int main()
     happyBirthday(name, yearsOld); // passing of the arguments
     happyBirthday(name, yearsOld);
     happyBirthday(name, yearsOld); // remember to follow the order as you had declared earlier in your function otherwise you will get errors
+*/
+// return = returns a value back to where you all a function
+int square(int num)
+{
+    int result = num * num;
+    return result;
+}
+int main()
+{
+    int x = square(2);
+    int y = square(3);
+    int z = square(4);
 
+    printf("%d\n", x);
+    printf("%d\n", y);
+    printf("%d\n", z);
     return 0;
 }
