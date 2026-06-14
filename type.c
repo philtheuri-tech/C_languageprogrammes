@@ -364,33 +364,60 @@ int main()
         }*/
 
     // USE OF THE SWITCH STATEMENT
-    char dayoftheweek = 0;
-    printf("Enter the day of the week(M, T, W, R, F, S, U): ");
-    scanf("%c", &dayoftheweek);
-    switch (dayoftheweek)
+    /* char dayoftheweek = 0;
+     printf("Enter the day of the week(M, T, W, R, F, S, U): ");
+     scanf("%c", &dayoftheweek);
+     switch (dayoftheweek)
+     {
+     case 'M':
+         printf("It is Monday\n");
+         break; // it is important to add the break stt since if you don't include it then the compiler will print all the other cases
+     case 'T':
+         printf("It is Tuesday\n");
+         break;
+     case 'W':
+         printf("It is Wednesday\n");
+         break;
+     case 'R':
+         printf("It is Thursday\n");
+     case 'F':
+         printf("It is Friday\n");
+         break;
+     case 'S':
+         printf("It is Saturday\n");
+         break;
+     case 'U':
+         printf("It is Sunday");
+         break;
+     default:
+         printf("Please enter a Valid character!(M, T, W, R, F, S,U)");
+     }*/
+    float price = 10.00;
+    bool isStudent = false; // 10% discount
+    bool isSenior = false;  // 20 % discount
+    // to avoid the compiler having wrong calculations we use the nested if stt
+    if (isStudent)
     {
-    case 'M':
-        printf("It is Monday\n");
-        break; // it is important to add the break stt since if you don't include it then the compiler will print all the other cases
-    case 'T':
-        printf("It is Tuesday\n");
-        break;
-    case 'W':
-        printf("It is Wednesday\n");
-        break;
-    case 'R':
-        printf("It is Thursday\n");
-    case 'F':
-        printf("It is Friday\n");
-        break;
-    case 'S':
-        printf("It is Saturday\n");
-        break;
-    case 'U':
-        printf("It is Sunday");
-        break;
-    default:
-        printf("Please enter a Valid character!(M, T, W, R, F, S,U)");
+        if (isSenior)
+        {
+            printf("You get a student discount of 10%\n");
+            printf("You get a senior discount of 20%\n");
+            price *= 0.7;
+        }
+        else
+        {
+            printf("You get a student discount of 10%");
+        }
     }
+    else
+    {
+        if (isSenior)
+        {
+            printf("You get a senior discount of 10%\n");
+            price *= 0.8;
+        }
+    }
+
+    printf("The price of a ticket is: $%.2f\n", price);
     return 0;
 }
