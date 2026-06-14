@@ -293,47 +293,104 @@ int main()
      printf("Goodbye!\n");
 
      */
-    double a, b, c, discriminant, root1, root2;
+    /* double a, b, c, discriminant, root1, root2;
 
-    printf("Enter value of a: ");
-    scanf("%lf", &a);
+     printf("Enter value of a: ");
+     scanf("%lf", &a);
 
-    printf("Enter value of b: ");
-    scanf("%lf", &b);
+     printf("Enter value of b: ");
+     scanf("%lf", &b);
 
-    printf("Enter value of c: ");
-    scanf("%lf", &c);
+     printf("Enter value of c: ");
+     scanf("%lf", &c);
 
-    if (a == 0)
-    {
-        printf("Not a quadratic equation.\n");
-        return 0;
+     if (a == 0)
+     {
+         printf("Not a quadratic equation.\n");
+         return 0;
+     }
+
+     discriminant = b * b - 4 * a * c;
+
+     if (discriminant > 0)
+     {
+         root1 = (-b + sqrt(discriminant)) / (2 * a);
+         root2 = (-b - sqrt(discriminant)) / (2 * a);
+         printf("Roots are real and different:\n");
+         printf("Root 1 = %.2lf\n", root1);
+         printf("Root 2 = %.2lf\n", root2);
+     }
+     else if (discriminant == 0)
+     {
+         root1 = -b / (2 * a);
+         printf("Roots are real and equal:\n");
+         printf("Root = %.2lf\n", root1);
+     }
+     else
+     {
+         double realPart = -b / (2 * a);
+         double imagPart = sqrt(-discriminant) / (2 * a);
+         printf("Roots are complex:\n");
+         printf("Root 1 = %.2lf + %.2lfi\n", realPart, imagPart);
+         printf("Root 2 = %.2lf - %.2lfi\n", realPart, imagPart);
+     }*/
+    // Function to check if a number is prime
+    /*int isprime(int num) {
+        if (num <= 1) {
+            return 0; // Not prime
+        }
+
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                return 0; // Not prime
+            }
+        }
+
+        return 1; // Prime
     }
 
-    discriminant = b * b - 4 * a * c;
+    int main{
+        int number;
 
-    if (discriminant > 0)
-    {
-        root1 = (-b + sqrt(discriminant)) / (2 * a);
-        root2 = (-b - sqrt(discriminant)) / (2 * a);
-        printf("Roots are real and different:\n");
-        printf("Root 1 = %.2lf\n", root1);
-        printf("Root 2 = %.2lf\n", root2);
-    }
-    else if (discriminant == 0)
-    {
-        root1 = -b / (2 * a);
-        printf("Roots are real and equal:\n");
-        printf("Root = %.2lf\n", root1);
-    }
-    else
-    {
-        double realPart = -b / (2 * a);
-        double imagPart = sqrt(-discriminant) / (2 * a);
-        printf("Roots are complex:\n");
-        printf("Root 1 = %.2lf + %.2lfi\n", realPart, imagPart);
-        printf("Root 2 = %.2lf - %.2lfi\n", realPart, imagPart);
-    }
+        // Prompt user input
+        printf("Enter a number: ");
+        scanf("%d", &number);
 
+        // Call function and display result
+        if (isprime(number) == 1) {
+            printf("%d is a prime number.\n", number);
+        } else {
+            printf("%d is not a prime number.\n", number);
+        }*/
+
+    // USE OF THE SWITCH STATEMENT
+    char dayoftheweek = 0;
+    printf("Enter the day of the week(M, T, W, R, F, S, U): ");
+    scanf("%c", &dayoftheweek);
+    switch (dayoftheweek)
+    {
+    case 'M':
+        printf("It is Monday\n");
+        break; // it is important to add the break stt since if you don't include it then the compiler will print all the other cases
+    case 'T':
+        printf("It is Tuesday\n");
+        break;
+    case 'W':
+        printf("It is Wednesday\n");
+        break;
+    case 'R':
+        printf("It is Thursday\n");
+    case 'F':
+        printf("It is Friday\n");
+        break;
+    case 'S':
+        printf("It is Saturday\n");
+        break;
+    case 'U':
+        printf("It is Sunday");
+        break;
+    default:
+        printf("Please enter a Valid character!(M, T, W, R, F, S,U)");
+    }
     return 0;
 }
