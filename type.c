@@ -2,6 +2,7 @@
 #include <string.h>  //for string manipulation functions like strcspn() used to remove the newline character from the name input.
 #include <math.h>    //for mathematical functions like pow() used to calculate the power of a number in the calculator program.
 #include <stdbool.h> // for boolean values
+#include <ctype.h>   // to convert the lowercase to uppercase
 int main()
 {
     // int age=30;
@@ -205,17 +206,134 @@ int main()
      {
          printf("You are not a student!");
      }*/
-    char name[50] = "";
-    printf("Enter your name: ");
-    fgets(name, sizeof(name), stdin);
-    name[strcspn(name, "\n")] = '\0';
-    if (strlen(name) == 0)
+    /* char name[50] = "";
+     printf("Enter your name: ");
+     fgets(name, sizeof(name), stdin);
+     name[strcspn(name, "\n")] = '\0';
+     if (strlen(name) == 0)
+     {
+         printf("Your did not enter you name");
+     }
+     else
+     {
+         printf("Hello %s", name);
+     }*/
+    // WEIGHT CONVERSION PROGRAMME
+
+    /* int choice = 0;
+     float pounds = 0.0f;
+     float kilograms = 0.0f;
+
+     printf("Weight Conversion Calculator\n");
+     printf("1.kilograms to pounds\n");
+     printf("2.Pounds to kilograms\n");
+     printf("Enter your choice(1 or 2):");
+     scanf("%d", &choice);
+
+     if (choice == 1)
+     {
+         printf("Enter the weight in kilograms: \n");
+         scanf("%f", &kilograms);
+         pounds = kilograms * 2.20462;
+         printf("%.2f kilograms is equal to %.2f pounds\n", kilograms, pounds);
+         // klograms to pounds
+     }
+     else if (choice == 2)
+     {
+         printf("Enter the weight in pounds: \n");
+         // pounds to kilograms
+         scanf("%f", &pounds);
+         kilograms = pounds / 2.20462;
+         printf("%.2f pounds is equal to %.2f kilograms", pounds, kilograms);
+     }
+     else
+     {
+         printf("Invalid choice! Please enter 1 or 2!\n");
+     }*/
+
+    // TEMPERATURE CONVERSION PROGRAM
+    /* char choice = '\0';
+     char again;
+     do
+     {
+         float celsius = 0.0f;
+         float fahrenheit = 0.0;
+         do
+         {
+             printf("Temperature Conversion Program\n");
+             printf("A.Celsius to Fahrenheit\n");
+             printf("B. Fahrenheit to Celsius\n");
+             printf("Enter your choice(A or B): ");
+             scanf(" %c", &choice);
+             choice = toupper(choice);
+             if (choice != 'A' && choice != 'B')
+             {
+                 printf("Invalid choice! Please select A or B!\n");
+             }
+         } while (choice != 'A' && choice != 'B');
+
+         if (choice == 'A')
+         {
+             printf("Enter the Temperature in celsius: ");
+             scanf("%f", &celsius);
+             fahrenheit = (celsius * 9 / 5) + 32;
+             printf("%.2f degrees celcius is equal to%.2f degrees fahrenheit\n", celsius, fahrenheit);
+         }
+
+        else if (choice == 'B')
+         {
+             printf("Enter the Temperature in Fahrenheit: ");
+             scanf("%f", &fahrenheit);
+             celsius = (fahrenheit - 32) * 5 / 9;
+             printf("%.1f degrees fahrenheit is equal to %.2f degrees celcius ", fahrenheit, celsius);
+         }
+         printf("\nDo you want to perform another calculation?(Y/N): ");
+         scanf(" %c", &again);
+     } while (again == 'Y');
+     printf("Goodbye!\n");
+
+     */
+    double a, b, c, discriminant, root1, root2;
+
+    printf("Enter value of a: ");
+    scanf("%lf", &a);
+
+    printf("Enter value of b: ");
+    scanf("%lf", &b);
+
+    printf("Enter value of c: ");
+    scanf("%lf", &c);
+
+    if (a == 0)
     {
-        printf("Your did not enter you name");
+        printf("Not a quadratic equation.\n");
+        return 0;
+    }
+
+    discriminant = b * b - 4 * a * c;
+
+    if (discriminant > 0)
+    {
+        root1 = (-b + sqrt(discriminant)) / (2 * a);
+        root2 = (-b - sqrt(discriminant)) / (2 * a);
+        printf("Roots are real and different:\n");
+        printf("Root 1 = %.2lf\n", root1);
+        printf("Root 2 = %.2lf\n", root2);
+    }
+    else if (discriminant == 0)
+    {
+        root1 = -b / (2 * a);
+        printf("Roots are real and equal:\n");
+        printf("Root = %.2lf\n", root1);
     }
     else
     {
-        printf("Hello %s", name);
+        double realPart = -b / (2 * a);
+        double imagPart = sqrt(-discriminant) / (2 * a);
+        printf("Roots are complex:\n");
+        printf("Root 1 = %.2lf + %.2lfi\n", realPart, imagPart);
+        printf("Root 2 = %.2lf - %.2lfi\n", realPart, imagPart);
     }
+
     return 0;
 }
