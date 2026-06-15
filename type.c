@@ -3,18 +3,19 @@
 #include <math.h>    //for mathematical functions like pow() used to calculate the power of a number in the calculator program.
 #include <stdbool.h> // for boolean values
 #include <ctype.h>   // to convert the lowercase to uppercase
-                     // int main()
-                     //{
-                     //  int age=30;
-                     //  char grade='A';
-                     //    double pi=3.14159;
-                     //   char email[]="philtheuri@gmail.com";
-                     //  char name[20]="PHILIP THEURI";
-                     //  printf("%s\n", name);//for a string variables, use %s format specifiers
-                     //  printf("%s\n", email);//same case as above.
-                     //  printf("%d\n",age);// for a integer variables, use %d format specifiers
-                     //  printf("%c\n",grade);// for a char variables, use %c format specifiers
-                     //  printf("%lf\n",pi);// for a double variables, use %lf format specifiers or customize the number to suit your needs, for example %.2lf will print pi with 2 decimal places.
+#include <windows.h> // to be used when we want the computer to dispaly a sleeping mode like launching a new year.
+// int main()
+//{
+//  int age=30;
+//  char grade='A';
+//    double pi=3.14159;
+//   char email[]="philtheuri@gmail.com";
+//  char name[20]="PHILIP THEURI";
+//  printf("%s\n", name);//for a string variables, use %s format specifiers
+//  printf("%s\n", email);//same case as above.
+//  printf("%d\n",age);// for a integer variables, use %d format specifiers
+//  printf("%c\n",grade);// for a char variables, use %c format specifiers
+//  printf("%lf\n",pi);// for a double variables, use %lf format specifiers or customize the number to suit your needs, for example %.2lf will print pi with 2 decimal places.
 
 // width specifiers
 // int num1=1, num2=10, num3=100;
@@ -637,4 +638,15 @@ int main()
         }
     } while (isRunning);
     printf("You've exited the game!");*/
+
+    // for loops- repeat a code for a limited no of times.
+
+    /*for (int i = 10; i >= 0; i--)
+    {
+        Sleep(1000);//this statement is to display ina sleep mode...we used miliseconds not seconds
+        //for a linux user/macOs it is sleep(100)/small s and in seconds not miliseconds as well as unitsd.h header file
+        printf("%d\n", i);
+    }
+    printf("HAPPY NEW YEAR!\n");*/
     return 0;
+}
