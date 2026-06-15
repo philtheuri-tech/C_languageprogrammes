@@ -648,5 +648,37 @@ int main()
         printf("%d\n", i);
     }
     printf("HAPPY NEW YEAR!\n");*/
+    // break- break out of a loop(STOP)
+    // continue- skip current cycle of a loop(SKIP)
+
+    /* for (int i = 1; i <= 10; i++)
+     {
+         if (i == 4)
+         {
+             continue;
+         }
+         printf("%d\n", i);
+     }
+ */
+
+    /*for (int i = 1; i < 7; i++)
+    {
+        for (int j = 1; j < 10; j++)
+        {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+*/
+    // MULTIPLICATION TABLE
+    /* printf("\n      MULTIPLICATION TABLE      \n");
+     for (int i = 1; i <= 10; i++)
+     {
+         for (int j = 1; j <= 10; j++)
+         {
+             printf("%3d ", i * j);
+         }
+         printf("\n");
+     }*/
     return 0;
 }
