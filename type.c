@@ -3,18 +3,18 @@
 #include <math.h>    //for mathematical functions like pow() used to calculate the power of a number in the calculator program.
 #include <stdbool.h> // for boolean values
 #include <ctype.h>   // to convert the lowercase to uppercase
-// int main()
-//{
-//  int age=30;
-//  char grade='A';
-//    double pi=3.14159;
-//   char email[]="philtheuri@gmail.com";
-//  char name[20]="PHILIP THEURI";
-//  printf("%s\n", name);//for a string variables, use %s format specifiers
-//  printf("%s\n", email);//same case as above.
-//  printf("%d\n",age);// for a integer variables, use %d format specifiers
-//  printf("%c\n",grade);// for a char variables, use %c format specifiers
-//  printf("%lf\n",pi);// for a double variables, use %lf format specifiers or customize the number to suit your needs, for example %.2lf will print pi with 2 decimal places.
+                     // int main()
+                     //{
+                     //  int age=30;
+                     //  char grade='A';
+                     //    double pi=3.14159;
+                     //   char email[]="philtheuri@gmail.com";
+                     //  char name[20]="PHILIP THEURI";
+                     //  printf("%s\n", name);//for a string variables, use %s format specifiers
+                     //  printf("%s\n", email);//same case as above.
+                     //  printf("%d\n",age);// for a integer variables, use %d format specifiers
+                     //  printf("%c\n",grade);// for a char variables, use %c format specifiers
+                     //  printf("%lf\n",pi);// for a double variables, use %lf format specifiers or customize the number to suit your needs, for example %.2lf will print pi with 2 decimal places.
 
 // width specifiers
 // int num1=1, num2=10, num3=100;
@@ -517,19 +517,58 @@ int main()
     happyBirthday(name, yearsOld); // remember to follow the order as you had declared earlier in your function otherwise you will get errors
 */
 // return = returns a value back to where you all a function
-int square(int num)
+/*double square(double num)
 {
-    int result = num * num;
+    return num * num;
+}
+int main()
+{
+    double x = square(2.1);
+    double y = square(3.56);
+    double z = square(4.7);
+
+    printf("%lf\n", x);
+    printf("%lf\n", y);
+    printf("%lf\n", z);*/
+/*bool ageCheck(int age)
+{
+    if (age >= 18)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+int main()
+{
+    int age = 12;
+    if (ageCheck(age))
+    {
+        printf("You may sign pup\n");
+    }
+    else
+    {
+        printf("You must be 18+ old");
+    }*/
+/*variable scope- refers to where a variable is recognized and accessible. Variables can share the same name if they're in different scopes.*/
+int add(int x, int y)
+{
+    int result = x + y;
+    return result;
+}
+int subtract(int x, int y)
+{
+    int result = x - y;
     return result;
 }
 int main()
 {
-    int x = square(2);
-    int y = square(3);
-    int z = square(4);
 
-    printf("%d\n", x);
-    printf("%d\n", y);
-    printf("%d\n", z);
+    int result = subtract(3, 4);
+
+    printf("%d", result);
+
     return 0;
 }
