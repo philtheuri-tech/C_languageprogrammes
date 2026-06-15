@@ -553,13 +553,15 @@ int main()
         printf("You must be 18+ old");
     }*/
 /*variable scope- refers to where a variable is recognized and accessible. Variables can share the same name if they're in different scopes.*/
+// you can define global scopes such as constant pi which can't be changed at any given point
+/*double pi = 3.142;//it is easy for it to be modified throughout the code hence not advisable to use it.
 int add(int x, int y)
 {
     int result = x + y;
     return result;
 }
-int subtract(int x, int y)
-{
+int subtract(int x, int y)//we have declared two functions with almost the same name
+{//but a function can't see inside another function which helps us to call our function at any given time.
     int result = x - y;
     return result;
 }
@@ -569,6 +571,36 @@ int main()
     int result = subtract(3, 4);
 
     printf("%d", result);
+*/
+/*a function propototype== provides the compiler with information about a function(s) such as name return type and parametres before its actual definition.
+it enables type checking and allows functions to be used before they're defined.
+it also improves readability, organization and helps prevent errors.*/
+/*void hello(char name[], int age); // function prototype
+bool ageCheck(int age);
+int main()
+{
+    hello("philip", 30);
 
+    if (ageCheck(30))
+    {
+        printf("You are old enough to vote!");
+    }
+    else
+    {
+        printf("You must be 18+ to vote");
+    }
+    return 0;
+}
+void hello(char name[], int age)
+{
+    printf("hello %s\n", name);
+    printf("You are %d years old!\n", age);
+}
+bool ageCheck(int age)
+{
+    return age >= 19;
+}*/
+int main()
+{
     return 0;
 }
