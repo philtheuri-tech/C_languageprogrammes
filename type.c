@@ -624,7 +624,7 @@ int main()
      }
      printf("Hello %s", name);*/
 
-    bool isRunning = true;
+    /*bool isRunning = true;
     char response = '\0';
     do
     {
@@ -636,6 +636,5 @@ int main()
             isRunning = false;
         }
     } while (isRunning);
-    printf("You've exited the game!");
+    printf("You've exited the game!");*/
     return 0;
-}
