@@ -605,141 +605,205 @@ bool ageCheck(int age)
 }*/
 // while loops in c
 
-int main()
-{
-    /* int number = 0;
-     do
-     {
-         printf("Enter a number greater than 0:");
-         scanf("%d", &number);
-     } while (number <= 0);*/
+// int main()
+//{
+/* int number = 0;
+ do
+ {
+     printf("Enter a number greater than 0:");
+     scanf("%d", &number);
+ } while (number <= 0);*/
 
-    /* char name[50] = "";
-     printf("Enter your name: ");
+/* char name[50] = "";
+ printf("Enter your name: ");
+ fgets(name, sizeof(name), stdin);
+ name[strcspn(name, "\n")] = '\0';
+
+ while (strlen(name) == 0)
+ {
+     printf("Name cannot be empty,please enter your name: ");
      fgets(name, sizeof(name), stdin);
      name[strcspn(name, "\n")] = '\0';
+ }
+ printf("Hello %s", name);*/
 
-     while (strlen(name) == 0)
+/*bool isRunning = true;
+char response = '\0';
+do
+{
+    printf("You are playing a game!\n");
+    printf("Would you like to continoue?(Y = Yes, N = No):");
+    scanf(" %c", &response);
+    if (response != 'Y' && response != 'y')
+    {
+        isRunning = false;
+    }
+} while (isRunning);
+printf("You've exited the game!");*/
+
+// for loops- repeat a code for a limited no of times.
+
+/*for (int i = 10; i >= 0; i--)
+{
+    Sleep(1000);//this statement is to display ina sleep mode...we used miliseconds not seconds
+    //for a linux user/macOs it is sleep(100)/small s and in seconds not miliseconds as well as unitsd.h header file
+    printf("%d\n", i);
+}
+printf("HAPPY NEW YEAR!\n");*/
+// break- break out of a loop(STOP)
+// continue- skip current cycle of a loop(SKIP)
+
+/* for (int i = 1; i <= 10; i++)
+ {
+     if (i == 4)
      {
-         printf("Name cannot be empty,please enter your name: ");
-         fgets(name, sizeof(name), stdin);
-         name[strcspn(name, "\n")] = '\0';
+         continue;
      }
-     printf("Hello %s", name);*/
+     printf("%d\n", i);
+ }
+*/
 
-    /*bool isRunning = true;
-    char response = '\0';
+/*for (int i = 1; i < 7; i++)
+{
+    for (int j = 1; j < 10; j++)
+    {
+        printf("%d ", j);
+    }
+    printf("\n");
+}
+*/
+// MULTIPLICATION TABLE
+/* printf("\n      MULTIPLICATION TABLE      \n");
+ for (int i = 1; i <= 10; i++)
+ {
+     for (int j = 1; j <= 10; j++)
+     {
+         printf("%3d ", i * j);
+     }
+     printf("\n");
+ }*/
+
+/*int rows = 0;
+int columns = 0;
+char symbol = '\0';
+printf("Enter the number of rows: ");
+scanf("%d", &rows);
+printf("Enter the number of columns: ");
+scanf("%d", &columns);
+printf("Enter the symbol: ");
+scanf(" %c", &symbol);
+
+for (int i = 0; i < rows; i++)
+{
+    for (int i = 0; i < columns; i++)
+    {
+        printf("%c", symbol);
+    }
+    printf("\n");
+}*/
+
+// pseudo-random= appear random but determined by a mathematical formual
+// that uses a seed value to generate a predictable sequence of numbers
+// advanced: Mersenne Twister or /dev/random
+// in this case we include the stdlib and time.h headerfiles.
+// srand(time(NULL)); // called the seed random function as well as the time function and declaring it to be null(or 0 which can perfom the same task.)
+// printf("%d\n", rand()); this is the basic way of calling random numbers
+
+/*srand(time(NULL));
+int min = 50;
+int max = 100;
+int randomNum1 = (rand() % (max - min + 1)) + min;
+int randomNum2 = (rand() % (max - min + 1)) + min;
+int randomNum3 = (rand() % (max - min + 1)) + min; /*without the curly brackets we get a one and two random numbers
+   but if we add the curly brackets and add 1 then we get random no between 1 and 2*/
+// printf("%d %d %d", randomNum1, randomNum2, randomNum3);
+
+/* printf("**** NUMBER GUESSING GAME ****\n");
+ srand(time(NULL));
+ int guess = 0;
+ int tries = 0;
+ int min = 10;
+ int max = 100;
+ int answer = (rand() % (max - min + 1)) + min;
+ do{
+printf("Guess a number between %d-%d: ", min, max);
+scanf("%d", &guess);
+tries++;
+if(guess< answer ){
+ printf("TOO LOW!\n");
+}
+else if(guess > answer){
+ printf("TOO HIGH\n");
+}
+else {
+ printf("CORRECT\n");
+}
+ } while(guess != answer);
+ printf("%d", answer);
+ printf("It took you %d tries", tries);*/
+
+int getComputerChoice();
+int getUserChoice();
+void checkWinner(int userChoice, int computerChoice);
+int main()
+{
+    printf("**** ROCK PAPER SCISSORS GAME ****\n");
+    srand(time(NULL));
+
+    int userChoice = getUserChoice();
+    int computerChoice = getComputerChoice();
+
+    switch (userChoice)
+    {
+    case 1:
+        printf("You chose ROCK\n");
+        break;
+    case 2:
+        printf("You chose PAPER\n");
+        break;
+    case 3:
+        printf("You chose SCISSORS\n");
+        break;
+    }
+    switch (computerChoice)
+    {
+    case 1:
+        printf("The computer chose ROCK\n");
+        break;
+    case 2:
+        printf("The computer chose PAPER\n");
+        break;
+    case 3:
+        printf("The computer chose SCISSORS\n");
+        break;
+    }
+    checkWinner(userChoice, computerChoice);
+
+    return 0;
+}
+int getComputerChoice()
+{
+    return (rand() % 3) + 1;
+}
+int getUserChoice()
+{
+    int choice = 0;
     do
     {
-        printf("You are playing a game!\n");
-        printf("Would you like to continoue?(Y = Yes, N = No):");
-        scanf(" %c", &response);
-        if (response != 'Y' && response != 'y')
-        {
-            isRunning = false;
-        }
-    } while (isRunning);
-    printf("You've exited the game!");*/
+        printf("Choose an option\n");
+        printf("1. ROCK\n");
+        printf("2. PAPER\n");
+        printf("3.SCISSORS\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+    } while (choice < 1 || choice > 3);
 
-    // for loops- repeat a code for a limited no of times.
-
-    /*for (int i = 10; i >= 0; i--)
+    return choice;
+}
+void CheckWinner(int userChoice, int computerChoice)
+{
+    if (userChoice == computerChoice)
     {
-        Sleep(1000);//this statement is to display ina sleep mode...we used miliseconds not seconds
-        //for a linux user/macOs it is sleep(100)/small s and in seconds not miliseconds as well as unitsd.h header file
-        printf("%d\n", i);
+        printf("Its a Tie!");
     }
-    printf("HAPPY NEW YEAR!\n");*/
-    // break- break out of a loop(STOP)
-    // continue- skip current cycle of a loop(SKIP)
-
-    /* for (int i = 1; i <= 10; i++)
-     {
-         if (i == 4)
-         {
-             continue;
-         }
-         printf("%d\n", i);
-     }
- */
-
-    /*for (int i = 1; i < 7; i++)
-    {
-        for (int j = 1; j < 10; j++)
-        {
-            printf("%d ", j);
-        }
-        printf("\n");
-    }
-*/
-    // MULTIPLICATION TABLE
-    /* printf("\n      MULTIPLICATION TABLE      \n");
-     for (int i = 1; i <= 10; i++)
-     {
-         for (int j = 1; j <= 10; j++)
-         {
-             printf("%3d ", i * j);
-         }
-         printf("\n");
-     }*/
-
-    /*int rows = 0;
-    int columns = 0;
-    char symbol = '\0';
-    printf("Enter the number of rows: ");
-    scanf("%d", &rows);
-    printf("Enter the number of columns: ");
-    scanf("%d", &columns);
-    printf("Enter the symbol: ");
-    scanf(" %c", &symbol);
-
-    for (int i = 0; i < rows; i++)
-    {
-        for (int i = 0; i < columns; i++)
-        {
-            printf("%c", symbol);
-        }
-        printf("\n");
-    }*/
-
-    // pseudo-random= appear random but determined by a mathematical formual
-    // that uses a seed value to generate a predictable sequence of numbers
-    // advanced: Mersenne Twister or /dev/random
-    // in this case we include the stdlib and time.h headerfiles.
-    // srand(time(NULL)); // called the seed random function as well as the time function and declaring it to be null(or 0 which can perfom the same task.)
-    // printf("%d\n", rand()); this is the basic way of calling random numbers
-
-    /*srand(time(NULL));
-    int min = 50;
-    int max = 100;
-    int randomNum1 = (rand() % (max - min + 1)) + min;
-    int randomNum2 = (rand() % (max - min + 1)) + min;
-    int randomNum3 = (rand() % (max - min + 1)) + min; /*without the curly brackets we get a one and two random numbers
-       but if we add the curly brackets and add 1 then we get random no between 1 and 2*/
-    // printf("%d %d %d", randomNum1, randomNum2, randomNum3);
-
-    /* printf("**** NUMBER GUESSING GAME ****\n");
-     srand(time(NULL));
-     int guess = 0;
-     int tries = 0;
-     int min = 10;
-     int max = 100;
-     int answer = (rand() % (max - min + 1)) + min;
-     do{
- printf("Guess a number between %d-%d: ", min, max);
- scanf("%d", &guess);
- tries++;
- if(guess< answer ){
-     printf("TOO LOW!\n");
- }
- else if(guess > answer){
-     printf("TOO HIGH\n");
- }
- else {
-     printf("CORRECT\n");
- }
-     } while(guess != answer);
-     printf("%d", answer);
-     printf("It took you %d tries", tries);*/
-    return 0;
 }
