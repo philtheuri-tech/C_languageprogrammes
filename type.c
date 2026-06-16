@@ -706,7 +706,7 @@ int main()
     // that uses a seed value to generate a predictable sequence of numbers
     // advanced: Mersenne Twister or /dev/random
     // in this case we include the stdlib and time.h headerfiles.
-    // srand(time(NULL)); // called the random function as well as the time function and declaring it to be null(or 0 which can perfom the same task.)
+    // srand(time(NULL)); // called the seed random function as well as the time function and declaring it to be null(or 0 which can perfom the same task.)
     // printf("%d\n", rand()); this is the basic way of calling random numbers
 
     /*srand(time(NULL));
@@ -718,5 +718,28 @@ int main()
        but if we add the curly brackets and add 1 then we get random no between 1 and 2*/
     // printf("%d %d %d", randomNum1, randomNum2, randomNum3);
 
+    /* printf("**** NUMBER GUESSING GAME ****\n");
+     srand(time(NULL));
+     int guess = 0;
+     int tries = 0;
+     int min = 10;
+     int max = 100;
+     int answer = (rand() % (max - min + 1)) + min;
+     do{
+ printf("Guess a number between %d-%d: ", min, max);
+ scanf("%d", &guess);
+ tries++;
+ if(guess< answer ){
+     printf("TOO LOW!\n");
+ }
+ else if(guess > answer){
+     printf("TOO HIGH\n");
+ }
+ else {
+     printf("CORRECT\n");
+ }
+     } while(guess != answer);
+     printf("%d", answer);
+     printf("It took you %d tries", tries);*/
     return 0;
 }
