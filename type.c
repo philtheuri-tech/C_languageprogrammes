@@ -811,10 +811,84 @@ void checkWinner(int userChoice, int computerChoice)
     (userChoice == 3 && computerChoice == 2)){
         printf("You WIN!");
     }
-    
+
     else {
     printf("You loose!");
 }
 }*/
+void checkBalance(float balance);
+float deposit();
+float withdraw(float balance);
+int main()
+{
+    printf("*****WELCOME TO THE ATM PHILIP*****\n");
+    int choice = 0;
+    float balance = 0.0f;
+    do
+    {
+        printf("Select an option:\n");
+        printf("1.Check Balance\n");
+        printf("2.Deposit Money\n");
+        printf("3.Withdraw Money\n");
+        printf("4.Exit the program\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            checkBalance(balance);
+            break;
+        case 2:
+            balance += deposit();
+            break;
+        case 3:
+            balance -= withdraw(balance);
+            break;
+        case 4:
+            printf("\nThankyou for Banking with us!");
+            break;
+        default:
+            printf("\nInvalid choice please select 1-4\n");
+        }
 
-
+    } while (choice != 4);
+    return 0;
+}
+void checkBalance(float balance)
+{
+    printf("\n YOUR CURRENT BALANCE IS: Kshs%.2f\n", balance);
+}
+float deposit()
+{
+    float amount = 0.0f;
+    printf("Enter the amount you wanna deposit: ");
+    scanf("%f", &amount);
+    if (amount < 0)
+    {
+        printf("Invalid amount\n");
+        return 0.0f;
+    }
+    else
+    {
+        printf("Succesfuly deposited kshs%.2f\n", amount);
+    }
+    return amount;
+}
+float withdraw(float balance)
+{
+    float amount = 0.0f;
+    printf("\nEnter the amount you want to withdraw: ");
+    scanf("%f", &amount);
+    if (amount < 0){
+        printf("Invalid amount!\n");
+        return 0.0f;
+    }
+    else if(amount > balance){
+        printf("Insufficient funds! Your balnce is kshs%.2f\n", balance);
+        return 0.0f;
+    }
+    else{
+        printf("Succesfully withdrawn %.2f\n", amount);
+    }
+    return amount;
+}
