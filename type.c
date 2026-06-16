@@ -742,7 +742,7 @@ else {
  printf("%d", answer);
  printf("It took you %d tries", tries);*/
 
-int getComputerChoice();
+/*int getComputerChoice();
 int getUserChoice();
 void checkWinner(int userChoice, int computerChoice);
 int main()
@@ -800,10 +800,21 @@ int getUserChoice()
 
     return choice;
 }
-void CheckWinner(int userChoice, int computerChoice)
+void checkWinner(int userChoice, int computerChoice)
 {
     if (userChoice == computerChoice)
     {
         printf("Its a Tie!");
     }
+    else if((userChoice == 1 && computerChoice == 3)||
+    (userChoice == 2 && computerChoice == 1)||
+    (userChoice == 3 && computerChoice == 2)){
+        printf("You WIN!");
+    }
+    
+    else {
+    printf("You loose!");
 }
+}*/
+
+
