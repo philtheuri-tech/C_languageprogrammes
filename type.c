@@ -897,7 +897,7 @@ int main()
 {
     // arrays-fixed collection of elements of the same data type
     //(similar to a variable but it holds more than one value)
-    int numbers[] = {10,02,30, 40, 50,58, 98,450, 234};
+    /*int numbers[] = {10,02,30, 40, 50,58, 98,450, 234};
     char grades[5]={'A', 'B', 'C', 'D','E'};
     char name[6] = "philip";
     numbers[0] = 100;//you can change any element of the array but you have to access it first
@@ -910,9 +910,28 @@ int main()
   // int size= sizeof(numbers)/sizeof(numbers[0]);
    for (int i=0; i<sizeof(numbers)/sizeof(numbers[0]); i++){
         printf("%d ", numbers[i]);
-    }
-    
+    }*/ //multi-dimensional arrays
+   //single dimensional array
+    /*int scores[5] ={0} ;
+    for (int i=0;i<5; i++){
+    printf("Enter a score: ");
+    scanf("%d", &scores[i]);}
+    for (int i =0; i<5; i++){
+        printf("%d ",scores[i]);
+    }*/
 
   
+/*double numbers[4][6]={{10.1, 20.34, 57.6, 71.8, 49.3, 56}, 
+                      {20, 30, 40, 50, 60, 70}, 
+                      {28, 39, 36, 59, 60, 77},
+                       {23,21, 48,10,15, 18}};
+for (int i=0; i <4; i++){
+    for (int j=0; j<6; j++){
+printf("%.f ", numbers[i][j]);
+    }
+    printf("\n");
+}
+*/
+char numpad[][] ={{}{}};
     return 0;
 }
