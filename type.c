@@ -816,7 +816,7 @@ void checkWinner(int userChoice, int computerChoice)
     printf("You loose!");
 }
 }*/
-void checkBalance(float balance);
+/*void checkBalance(float balance);
 float deposit();
 float withdraw(float balance);
 int main()
@@ -891,4 +891,28 @@ float withdraw(float balance)
         printf("Succesfully withdrawn %.2f\n", amount);
     }
     return amount;
+}*/
+
+int main()
+{
+    // arrays-fixed collection of elements of the same data type
+    //(similar to a variable but it holds more than one value)
+    int numbers[] = {10,02,30, 40, 50,58, 98,450, 234};
+    char grades[5]={'A', 'B', 'C', 'D','E'};
+    char name[6] = "philip";
+    numbers[0] = 100;//you can change any element of the array but you have to access it first
+    numbers[1] = 4;
+    numbers[2] = 70;
+    numbers[3] = 50;
+    numbers[4] = 400;
+    //printf("%d\n", sizeof(numbers));
+   // printf("%d\n", sizeof(numbers[0]));
+  // int size= sizeof(numbers)/sizeof(numbers[0]);
+   for (int i=0; i<sizeof(numbers)/sizeof(numbers[0]); i++){
+        printf("%d ", numbers[i]);
+    }
+    
+
+  
+    return 0;
 }
