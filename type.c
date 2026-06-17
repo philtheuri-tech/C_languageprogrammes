@@ -949,7 +949,7 @@ fruits[2][3] ='B';//for switching letters;
 for(int i = 0; i < sizeof(fruits)/sizeof(fruits[0]); i++){
     printf("%s  ", fruits[i]); 
 }*/
-char names[5][23] ={0};
+/*char names[5][23] ={0};
 
 for (int i =0; i<5; i++){
 printf("Enter name %d: ", i+1);
@@ -966,6 +966,36 @@ printf("\nNAMES ENTERED:\n");
 for (int i =0; i<5; i++)
 {
 printf("Name %d: %s\n", i+1, names[i]);
+}*/
+
+//quiz game
+char questions[][100] ={"What is the largest planet in the solar system?: ",
+                        "What is the hottest planet?: ",
+                        "Who is the president of Kenya?"};
+char options [][100]={"A.JUPITER\nB.MARS\nC.SATURN\nD.URANUS", 
+                      "A.MERCURY\nB.VENUS\nC.EARTH\nD.MARS", 
+                      "A.JOMO KENYATTA\nB.UHURU\nC.WANTAM"};
+char answerKey[] = {'A', 'B', 'C'};
+
+char guess = '\0';
+int score = 0;
+printf("Quiz Game!\n");
+for (int i = 0; i<sizeof(questions)/sizeof(questions[i]); i++)
+{
+printf("\n%s\n", questions[i]);
+printf("\n%s\n", options[i]);
+printf("\nEnter your choice: ");
+scanf(" %c", &guess);
+guess = toupper(guess);
+if (guess == answerKey[i])
+{
+    printf("CORRECT\n");
+    score++;
 }
+else{
+    printf("WRONG\n");
+}
+}
+printf("Your score is %d out of %d", score, sizeof(questions)/sizeof(questions[0]));
     return 0;
 }
