@@ -932,6 +932,40 @@ printf("%.f ", numbers[i][j]);
     printf("\n");
 }
 */
-char numpad[][] ={{}{}};
+//arrays for characters
+/*char numpad[][3] ={{'1', '2', '3'},{'4', '5', '6'},{'7', '8', '9'}, {'*', '+', '#'}};
+for (int i = 0; i<4; i++){
+    for(int j= 0; j < 3; j++){
+        printf(" %c", numpad[i][j]);
+    }
+    printf("\n");
+}*/
+
+//array of strings
+/*char fruits [][10]= {"Apple", "Banana", "Avocado", "Coconut"};
+
+fruits[0][0] = 'L';//for switching letters;
+fruits[2][3] ='B';//for switching letters;
+for(int i = 0; i < sizeof(fruits)/sizeof(fruits[0]); i++){
+    printf("%s  ", fruits[i]); 
+}*/
+char names[5][23] ={0};
+
+for (int i =0; i<5; i++){
+printf("Enter name %d: ", i+1);
+fgets(names[i], sizeof(names[i]), stdin);
+names[i][strcspn(names[i], "\n")] = '\0';
+//names[i][0] = toupper(names[i][0]);//to capitalize the first letter of each word.
+for(int j = 0; names[i][j] !='\0'; j++){ //this line executes for as long as our character is a non null terminator
+    if(j == 0 || names[i][j-1] == ' '){// if our characters are j =o and second name j-1(if our letters are five, then capitalize the last storage space), then the names are capitalized.
+        names[i][j] =toupper(names[i][j]);
+    }
+}
+}
+printf("\nNAMES ENTERED:\n");
+for (int i =0; i<5; i++)
+{
+printf("Name %d: %s\n", i+1, names[i]);
+}
     return 0;
 }
