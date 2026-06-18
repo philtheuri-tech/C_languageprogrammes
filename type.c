@@ -893,8 +893,7 @@ float withdraw(float balance)
     return amount;
 }*/
 
-int main()
-{
+
     // arrays-fixed collection of elements of the same data type
     //(similar to a variable but it holds more than one value)
     /*int numbers[] = {10,02,30, 40, 50,58, 98,450, 234};
@@ -999,17 +998,41 @@ else{
 printf("Your score is %d out of %d", score, sizeof(questions)/sizeof(questions[0]));*/
 
 
-//tenary operator-ahorthand for if..else statements
+//tenary operator-a (Shortcut)shorthand for if..else statements
 //(condition)? value_if_true:else value_if_false
-
+//example 1
 /*int x = 10;
 int y =11;
 int max = x>y? x:y;
 printf("%d", max);*/
+//exmple 2
 /*bool isOnline = false;
 printf("%s", (isOnline)?"Online":"offline");*/
+//Example 3
+/*int number = 11;
+printf("%d is %s", number, (number%2 == 0)? "even": "odd");*/
+//Example 4
+/*int age = 1;
+printf("%s", (age >18)?"You are an adult": "you are a child");*/
 
-int number = 11;
-printf("%d is %s", number, (number%2 == 0)? "even": "odd");
+//Example 5
+/*int hours = 12;
+int minutes = 3;
+char *meridiem =(hours<12)? "AM": "PM";
+printf("%02d:%02d %s", hours, minutes, meridiem);*/
+//tyedef-reserved keyword that gives an existing datatype a 'nickname' 
+//helps simplify complex types and improve and code readability
+
+//typedef existing_type new_name;
+/*typedef int Number;
+int main()
+{
+int x = 3;
+int y = 4;
+int  z = x + y;
+printf("%d", z);
+
+
     return 0;
 }
+*/
