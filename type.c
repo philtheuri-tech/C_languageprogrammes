@@ -1036,3 +1036,42 @@ printf("%d", z);
     return 0;
 }
 */
+
+//typedef char String[50];//while replacing a name you need to specify the max number
+//     of characters that you want to be included. when we shall replace the 
+//     char variable with a string we can now lack to include the specified max characters.
+//we can also use a pointer instead and eliminate the need for the character max specifications as shown
+
+//Example 1
+/*typedef char Number;
+int main(){
+Number name = "Philip theuri";
+printf("%s", name);
+return 0;
+}*/
+//Example 2;
+/*typedef char String[50];
+int main(void){
+    int i= 0;
+
+    String user[] ={ "Bc", "spongebob squarepants", "james", "john", "Bbb", "philip"};
+ for (int i = 0; i<6; i++){
+    for (int j =0; user[i][j] != 0; j++){
+        if(j ==0 || user[i][j - 1] == ' '){
+            user[i][j] = toupper(user[i][j]);
+        }
+    }
+ }
+for (int i =0; i <6; i++){
+   
+    printf("%s\n", user[i]);}
+    return 0;
+
+}*/
+
+
+
+
+
+
+
