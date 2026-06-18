@@ -969,7 +969,7 @@ printf("Name %d: %s\n", i+1, names[i]);
 }*/
 
 //quiz game
-char questions[][100] ={"What is the largest planet in the solar system?: ",
+/*char questions[][100] ={"What is the largest planet in the solar system?: ",
                         "What is the hottest planet?: ",
                         "Who is the president of Kenya?"};
 char options [][100]={"A.JUPITER\nB.MARS\nC.SATURN\nD.URANUS", 
@@ -996,6 +996,20 @@ else{
     printf("WRONG\n");
 }
 }
-printf("Your score is %d out of %d", score, sizeof(questions)/sizeof(questions[0]));
+printf("Your score is %d out of %d", score, sizeof(questions)/sizeof(questions[0]));*/
+
+
+//tenary operator-ahorthand for if..else statements
+//(condition)? value_if_true:else value_if_false
+
+/*int x = 10;
+int y =11;
+int max = x>y? x:y;
+printf("%d", max);*/
+/*bool isOnline = false;
+printf("%s", (isOnline)?"Online":"offline");*/
+
+int number = 11;
+printf("%d is %s", number, (number%2 == 0)? "even": "odd");
     return 0;
 }
