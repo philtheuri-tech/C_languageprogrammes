@@ -11,6 +11,14 @@ printf("The array is:-");
 for(i=0; i<10; i++)
 {
 printf("%d\n",a[i]);
+for (int i = 0; i < size(names)/sizeof(names[0]); i++)
+{
+for(int [i][j] != 0; j++)
+{
+if(j == 0 || [i][j-1] == ' '){
+name[i][j] = toupper(name[i][j]);
+     }
+ }
 
 }
 return 0;
@@ -87,18 +95,13 @@ return 0;
     // ptr->year = 2020;
 
     // Printing the values
-    // printf("Car Details\n");
-    // printf("Number: %d\n", ptr->number);
-    // printf("Model: %s\n", ptr->model);
-    // printf("Brand: %s\n", ptr->brand);
-    // printf("Year: %d\n", ptr->year);
     /*  int numbers[10]; // This creates space for 10 integers
      int i;
 
      printf("Enter 10 numbers:\n");
 
      // Loop 1: Getting user input
-     for(i = 0; i < 10; i++) {
+     for(int i = 0; i < 10; i++) {
          printf("Number %d: ", i + 1);
          scanf("%d", &numbers[i]);
      }

@@ -893,35 +893,34 @@ float withdraw(float balance)
     return amount;
 }*/
 
+// arrays-fixed collection of elements of the same data type
+//(similar to a variable but it holds more than one value)
+/*int numbers[] = {10,02,30, 40, 50,58, 98,450, 234};
+char grades[5]={'A', 'B', 'C', 'D','E'};
+char name[6] = "philip";
+numbers[0] = 100;//you can change any element of the array but you have to access it first
+numbers[1] = 4;
+numbers[2] = 70;
+numbers[3] = 50;
+numbers[4] = 400;
+//printf("%d\n", sizeof(numbers));
+// printf("%d\n", sizeof(numbers[0]));
+// int size= sizeof(numbers)/sizeof(numbers[0]);
+for (int i=0; i<sizeof(numbers)/sizeof(numbers[0]); i++){
+    printf("%d ", numbers[i]);
+}*/
+// multi-dimensional arrays
+// single dimensional array
+/*int scores[5] ={0} ;
+for (int i=0;i<5; i++){
+printf("Enter a score: ");
+scanf("%d", &scores[i]);}
+for (int i =0; i<5; i++){
+    printf("%d ",scores[i]);
+}*/
 
-    // arrays-fixed collection of elements of the same data type
-    //(similar to a variable but it holds more than one value)
-    /*int numbers[] = {10,02,30, 40, 50,58, 98,450, 234};
-    char grades[5]={'A', 'B', 'C', 'D','E'};
-    char name[6] = "philip";
-    numbers[0] = 100;//you can change any element of the array but you have to access it first
-    numbers[1] = 4;
-    numbers[2] = 70;
-    numbers[3] = 50;
-    numbers[4] = 400;
-    //printf("%d\n", sizeof(numbers));
-   // printf("%d\n", sizeof(numbers[0]));
-  // int size= sizeof(numbers)/sizeof(numbers[0]);
-   for (int i=0; i<sizeof(numbers)/sizeof(numbers[0]); i++){
-        printf("%d ", numbers[i]);
-    }*/ //multi-dimensional arrays
-   //single dimensional array
-    /*int scores[5] ={0} ;
-    for (int i=0;i<5; i++){
-    printf("Enter a score: ");
-    scanf("%d", &scores[i]);}
-    for (int i =0; i<5; i++){
-        printf("%d ",scores[i]);
-    }*/
-
-  
-/*double numbers[4][6]={{10.1, 20.34, 57.6, 71.8, 49.3, 56}, 
-                      {20, 30, 40, 50, 60, 70}, 
+/*double numbers[4][6]={{10.1, 20.34, 57.6, 71.8, 49.3, 56},
+                      {20, 30, 40, 50, 60, 70},
                       {28, 39, 36, 59, 60, 77},
                        {23,21, 48,10,15, 18}};
 for (int i=0; i <4; i++){
@@ -931,7 +930,7 @@ printf("%.f ", numbers[i][j]);
     printf("\n");
 }
 */
-//arrays for characters
+// arrays for characters
 /*char numpad[][3] ={{'1', '2', '3'},{'4', '5', '6'},{'7', '8', '9'}, {'*', '+', '#'}};
 for (int i = 0; i<4; i++){
     for(int j= 0; j < 3; j++){
@@ -940,13 +939,13 @@ for (int i = 0; i<4; i++){
     printf("\n");
 }*/
 
-//array of strings
+// array of strings
 /*char fruits [][10]= {"Apple", "Banana", "Avocado", "Coconut"};
 
 fruits[0][0] = 'L';//for switching letters;
 fruits[2][3] ='B';//for switching letters;
 for(int i = 0; i < sizeof(fruits)/sizeof(fruits[0]); i++){
-    printf("%s  ", fruits[i]); 
+    printf("%s  ", fruits[i]);
 }*/
 /*char names[5][23] ={0};
 
@@ -967,12 +966,12 @@ for (int i =0; i<5; i++)
 printf("Name %d: %s\n", i+1, names[i]);
 }*/
 
-//quiz game
+// quiz game
 /*char questions[][100] ={"What is the largest planet in the solar system?: ",
                         "What is the hottest planet?: ",
                         "Who is the president of Kenya?"};
-char options [][100]={"A.JUPITER\nB.MARS\nC.SATURN\nD.URANUS", 
-                      "A.MERCURY\nB.VENUS\nC.EARTH\nD.MARS", 
+char options [][100]={"A.JUPITER\nB.MARS\nC.SATURN\nD.URANUS",
+                      "A.MERCURY\nB.VENUS\nC.EARTH\nD.MARS",
                       "A.JOMO KENYATTA\nB.UHURU\nC.WANTAM"};
 char answerKey[] = {'A', 'B', 'C'};
 
@@ -997,33 +996,32 @@ else{
 }
 printf("Your score is %d out of %d", score, sizeof(questions)/sizeof(questions[0]));*/
 
-
-//tenary operator-a (Shortcut)shorthand for if..else statements
+// tenary operator-a (Shortcut)shorthand for if..else statements
 //(condition)? value_if_true:else value_if_false
-//example 1
+// example 1
 /*int x = 10;
 int y =11;
 int max = x>y? x:y;
 printf("%d", max);*/
-//exmple 2
+// exmple 2
 /*bool isOnline = false;
 printf("%s", (isOnline)?"Online":"offline");*/
-//Example 3
+// Example 3
 /*int number = 11;
 printf("%d is %s", number, (number%2 == 0)? "even": "odd");*/
-//Example 4
+// Example 4
 /*int age = 1;
 printf("%s", (age >18)?"You are an adult": "you are a child");*/
 
-//Example 5
+// Example 5
 /*int hours = 12;
 int minutes = 3;
 char *meridiem =(hours<12)? "AM": "PM";
 printf("%02d:%02d %s", hours, minutes, meridiem);*/
-//tyedef-reserved keyword that gives an existing datatype a 'nickname' 
-//helps simplify complex types and improve and code readability
+// tyedef-reserved keyword that gives an existing datatype a 'nickname'
+// helps simplify complex types and improve and code readability
 
-//typedef existing_type new_name;
+// typedef existing_type new_name;
 /*typedef int Number;
 int main()
 {
@@ -1037,19 +1035,19 @@ printf("%d", z);
 }
 */
 
-//typedef char String[50];//while replacing a name you need to specify the max number
-//     of characters that you want to be included. when we shall replace the 
-//     char variable with a string we can now lack to include the specified max characters.
-//we can also use a pointer instead and eliminate the need for the character max specifications as shown
+// typedef char String[50];//while replacing a name you need to specify the max number
+//      of characters that you want to be included. when we shall replace the
+//      char variable with a string we can now lack to include the specified max characters.
+// we can also use a pointer instead and eliminate the need for the character max specifications as shown
 
-//Example 1
+// Example 1
 /*typedef char Number;
 int main(){
 Number name = "Philip theuri";
 printf("%s", name);
 return 0;
 }*/
-//Example 2;
+// Example 2;
 /*typedef char String[50];
 int main(void){
     int i= 0;
@@ -1063,15 +1061,61 @@ int main(void){
     }
  }
 for (int i =0; i <6; i++){
-   
+
     printf("%s\n", user[i]);}
     return 0;
 
 }*/
 
+// Enum == A user-defined data type that consists of a set of named integer constants.
+//  Benefit: replaces numbers with readable name
+/*typedef enum
+{
+    SUNDAY = 1,
+    MONDAY = 2,
+    TUESDAY = 3 ,
+    WEDNESDAY = 4 ,
+    THURSDAY = 5 ,
+    FRIDAY= 6 ,
+    SATURDAY = 7 
+} Day;
+// For the normal format; its enum datatype{};and the word enum when calling the function
+// we can however change that as done below to remove the need of enum in the int main.
+// we can c
+int main()
+{
+    Day today = SATURDAY;
+if (today == SUNDAY || today == SATURDAY ){
+    printf("TODAY'S A WEEKEND");
+}
+else {
+    printf("ITS A WEEKEDAY\n");
+}
+    return 0;
+}*/
+/*typedef enum {
+    SUCCESS, FAILURE, PENDING
+}Status;
+void connectStatus(Status status );
+int main(){
+Status status = FAILURE;
+connectStatus( status );
+    return 0 ;
+}
+void connectStatus(Status status ){
+    switch(status)
+{
+    case SUCCESS:
+    printf("Connection was succesful\n");
+    break;
+    case FAILURE:
+    printf("Connection failed!\n");
+    break;
+    case PENDING:
+    printf("Connection pending...\n");
+    break;
+    default :
+    printf("Error occured\n");
+}
 
-
-
-
-
-
+}*/
