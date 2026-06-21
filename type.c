@@ -1119,7 +1119,7 @@ void connectStatus(Status status ){
 }
 
 }*/
-typedef struct {
+/*typedef struct {
     char name [50];
     int age;
     float Gpa;
@@ -1162,4 +1162,34 @@ for (int i = 0; i<size; i++){
   printf("Age: %d\n", student[i].age);
   printf("FullTime student:%s\n\n", (student[i].isFullTime)? "Yes":"No");
 }
+}*/
+//Array of structs == array where each element contains a struct{} helps 
+// organize and group together related data.
+/*typedef struct {
+    char model[25];
+    int year;
+    int price;
+}Car;
+
+int main(){
+Car cars[] = {{"Porche", 2010, 1000000},
+             {"coverte", 2026, 67000},
+             {"Mustang", 2025, 700000}};
+printf("CAR MODEL \tYear\tPrice");
+for (int i= 0; i<sizeof(cars)/sizeof(cars[0]); i++){
+    printf("\n%s\t\t", cars[i].model);
+    printf("%d\t", cars[i].year);
+    printf("%d$\t", cars[i].price);
+
 }
+    return 0;
+}*/
+ 
+
+int main(){
+
+    
+    return 0;
+}
+
+
