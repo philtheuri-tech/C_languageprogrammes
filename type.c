@@ -1119,3 +1119,47 @@ void connectStatus(Status status ){
 }
 
 }*/
+typedef struct {
+    char name [50];
+    int age;
+    float Gpa;
+    bool isFullTime;
+
+}Student;
+void printStudent(Student student[], int size);
+// struct a custom container that holds multiple pieces of related information
+// similar to objects in other languages.
+int main(){
+     Student student[] ={{"philip theuri", 21, 4.1,  true}
+   ,{"james mwangi", 22, 5.3, true}
+   , {"john mwangi", 48, 6, false}
+   ,{"Marlon otieno", 67, 4.2, true}};
+   int size = sizeof(student)/ sizeof(student[0]);
+    //if you wanna assign values for a struct later then use this;
+    //strncpystrcpy(student2.name, "james mwangi"); //or strncopy to save a certain amount of characters
+//student2.age = 22;
+//student2.Gpa = 5.3;
+//student2.isFullTime = true;
+for (int i =0; student[i].name[i] != '\0'; i++){
+    for (int j = 0; student[i].name[j] != '\0'; j++){
+        if(j ==0 || student[i].name[j - 1] == ' '){
+            student[i].name[j] = toupper(student[i].name[j]);
+        }
+    }
+ }
+    printStudent(student, size);
+
+return 0;
+}
+void printStudent(Student student[], int size){
+
+        
+for (int i = 0; i<size; i++){
+
+  printf("Name:%s\n", student[i].name);//to access a name from a struct use the dot at the end and the name
+
+  printf("Gpa: %.2f\n", student[i].Gpa);
+  printf("Age: %d\n", student[i].age);
+  printf("FullTime student:%s\n\n", (student[i].isFullTime)? "Yes":"No");
+}
+}
