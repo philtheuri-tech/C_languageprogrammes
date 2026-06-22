@@ -1185,11 +1185,27 @@ for (int i= 0; i<sizeof(cars)/sizeof(cars[0]); i++){
     return 0;
 }*/
  
-
+void birthday(int *age);
 int main(){
 
-    
+ //pointer = a variablee that stores the memory address of another variable
+ // they help in avoiding wasting memory by allowing you to pass the address
+ //   if a larger data structure instead of copying the entire data.
+ 
+ int age = 20;
+// to print the memory address, use: printf("%p", &age);
+int*pAge= &age;//the aesteric is a direfference operator.
+//printf("%p\n", &age);
+//printf("%p\n", pAge);
+//passing a pointer to a function.
+//there are two ways of passing a value to a function ie: pass by value and pass by refference
+birthday(pAge);
+printf("You are %d years old", age);
     return 0;
 }
+void birthday(int*age//passing by refference using the pointer
+    ){//if we pass the int ageitself, it won't work as we're passing by value and no changes will take place.
+        (*age)++;//we derreference the age then increase it by one.
+    }
 
 
