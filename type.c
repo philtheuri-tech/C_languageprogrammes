@@ -1240,7 +1240,7 @@ int main()
 
 
 
-    //Malloc() = A function on C that dynamically allocates a specified numbers of bytes in memory.
+    //Malloc() = //MEMORY ALLOCATION: A function on C that dynamically allocates a specified numbers of bytes in memory.
     // For an array,you need to specify the number of elements you want to store which may be a probles
     //  especially if you don't know the number of elements or tests you want to store.
     // that's where a Malloc comes in to help you store a certain number of bites\storage
@@ -1272,5 +1272,31 @@ for (int i =  0; i< number; i++){
     
     free(grades);// returning "rented" space back to the operating system.Freeing the space.
     grades = NULL; */// returning the key to avoid dangling pointer- resetting the pointer.
+//printf("THE END----------\n");
+printf("Calloc:CONTIGIOUS ALLOCATION---\n");
+    // calloc---- CONTIGIOUS ALLOCATION   
+    // Allocates memory and sets all allocated bytes to 0(zero)
+    //    maloc is faster but caloc leads to less bugs 
+    //   caloc(#(byte), size)
+//include the stdlib.h
+int number = 0;
+printf("Enter the number of players: ");
+scanf("%d", &number);
+int *scores = calloc(number, sizeof(int));// if we used malloc and printf(scores[i]);
+// we get garbage values hence its prefferd to turn to using calloc and differentiate the two using a comma
+
+if (scores == NULL){
+    printf("Memory allocation failed!\n");
+    return 1;
+}
+for(int i = 0; i< number; i++){
+    printf("Enter score#%d: ", i+1);
+    scanf(" %d", &scores[i]);
+}
+for(int i = 0; i<number; i++){
+    printf("%d ", scores[i]);
+}
+free(scores);
+scores = NULL;
     return 0;
 }
