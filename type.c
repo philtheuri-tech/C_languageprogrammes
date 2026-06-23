@@ -6,6 +6,8 @@
 #include <windows.h> // to be used when we want the computer to dispaly a sleeping mode like launching a new year.
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
+
 // int main()
 //{
 //  int age=30;
@@ -1236,67 +1238,128 @@ int main()
         printf("%s", buffer);
     }*/
 
+    // Malloc() = //MEMORY ALLOCATION: A function on C that dynamically allocates a specified numbers of bytes in memory.
+    //  For an array,you need to specify the number of elements you want to store which may be a probles
+    //   especially if you don't know the number of elements or tests you want to store.
+    //  that's where a Malloc comes in to help you store a certain number of bites\storage
+    //     that you will  pass down to a later time when you're sure of the number of elements you want to store
+    /*int number = 0;
+    // stdlib.h
+    printf("Enter the number of grades: ");
+    scanf("%d", &number);
+        float *grades = malloc(number * sizeof(float));// this stt determines the amount of storage space that
+        // will be set aside for the elemnts to be keyed in by the user.
+    // A segmentation fault occurs when a program attempts to acces a memory location that is
+    //      not allowed to acces or attempts to access a memory location that is not allowed
+    // for example trying to write a read- only location, or to overwrite part of the operating system.
 
-
-
-
-    //Malloc() = //MEMORY ALLOCATION: A function on C that dynamically allocates a specified numbers of bytes in memory.
-    // For an array,you need to specify the number of elements you want to store which may be a probles
-    //  especially if you don't know the number of elements or tests you want to store.
-    // that's where a Malloc comes in to help you store a certain number of bites\storage
-    //    that you will  pass down to a later time when you're sure of the number of elements you want to store
-/*int number = 0;
-// stdlib.h
-printf("Enter the number of grades: ");
-scanf("%d", &number);
-    float *grades = malloc(number * sizeof(float));// this stt determines the amount of storage space that
-    // will be set aside for the elemnts to be keyed in by the user.
-// A segmentation fault occurs when a program attempts to acces a memory location that is 
-//      not allowed to acces or attempts to access a memory location that is not allowed
-// for example trying to write a read- only location, or to overwrite part of the operating system.
-
-if(grades == NULL){
-printf("Memory allocation failed!\n");
-return 1;
-}
-
-for(int i = 0; i< number; i++)// by working with the size of arrays this won't work 
-// that's why we're turning to using numbers instead of sizeof(numbers)
-{
-   printf("Enter grade number %d: ", i+1);
-   scanf(" %f", &grades[i]);// this prompts the user to enter the numbers as he/ she had indicated earlier in the array 
-}
-for (int i =  0; i< number; i++){
-    printf("%.0f ", grades[i]);
-}
-    
-    free(grades);// returning "rented" space back to the operating system.Freeing the space.
-    grades = NULL; */// returning the key to avoid dangling pointer- resetting the pointer.
-//printf("THE END----------\n");
-printf("Calloc:CONTIGIOUS ALLOCATION---\n");
-    // calloc---- CONTIGIOUS ALLOCATION   
-    // Allocates memory and sets all allocated bytes to 0(zero)
-    //    maloc is faster but caloc leads to less bugs 
-    //   caloc(#(byte), size)
-//include the stdlib.h
-int number = 0;
-printf("Enter the number of players: ");
-scanf("%d", &number);
-int *scores = calloc(number, sizeof(int));// if we used malloc and printf(scores[i]);
-// we get garbage values hence its prefferd to turn to using calloc and differentiate the two using a comma
-
-if (scores == NULL){
+    if(grades == NULL){
     printf("Memory allocation failed!\n");
     return 1;
-}
-for(int i = 0; i< number; i++){
-    printf("Enter score#%d: ", i+1);
-    scanf(" %d", &scores[i]);
-}
-for(int i = 0; i<number; i++){
-    printf("%d ", scores[i]);
-}
-free(scores);
-scores = NULL;
+    }
+
+    for(int i = 0; i< number; i++)// by working with the size of arrays this won't work
+    // that's why we're turning to using numbers instead of sizeof(numbers)
+    {
+       printf("Enter grade number %d: ", i+1);
+       scanf(" %f", &grades[i]);// this prompts the user to enter the numbers as he/ she had indicated earlier in the array
+    }
+    for (int i =  0; i< number; i++){
+        printf("%.0f ", grades[i]);
+    }
+
+        free(grades);// returning "rented" space back to the operating system.Freeing the space.
+        grades = NULL; */
+    // returning the key to avoid dangling pointer- resetting the pointer.
+    // printf("THE END----------\n");
+    // printf("Calloc:CONTIGIOUS ALLOCATION---\n");
+    //  calloc---- CONTIGIOUS ALLOCATION
+    //  Allocates memory and sets all allocated bytes to 0(zero)
+    //     maloc is faster but caloc leads to less bugs
+    //    caloc(#(byte), size)
+    // include the stdlib.h
+    /*int number = 0;
+    printf("Enter the number of players: ");
+    scanf("%d", &number);
+    int *scores = calloc(number, sizeof(int));// if we used malloc and printf(scores[i]);
+    // we get garbage values hence its prefferd to turn to using calloc and differentiate the two using a comma
+
+    if (scores == NULL){
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+    for(int i = 0; i< number; i++){
+        printf("Enter score#%d: ", i+1);
+        scanf(" %d", &scores[i]);
+    }
+    for(int i = 0; i<number; i++){
+        printf("%d ", scores[i]);
+    }
+    free(scores);
+    scores = NULL;*/
+    // REALLOC FUCTIONS: Realocation.(Resize previously allocated memory)
+    //  realloc(ptr, bytes)
+    // for a store, we need to store an array for different products
+    /*int number = 0;
+    printf("Enter the number of prices: ");
+    scanf("%d", &number);
+
+     float *prices = calloc(number, sizeof(float));
+     if(prices == NULL){
+        printf("Memory allocation failed!\n");
+        return 1;
+     }
+     for (int i = 0; i<number; i++){
+        printf("Enter price #%d: ", i+1);
+        scanf("%f", &prices[i]);
+
+     }
+     int newNumber= 0;
+     printf("Enter a new number of prices: ");
+     scanf("%d", &newNumber);
+     float *temp = realloc(prices, newNumber*sizeof(float));//copy the previously entered numbers to a
+     //  new memory and free up the old memory.
+     if(temp == NULL){
+        printf("Cold not allocate the memory!\n");
+        // we don't wanna loose the previous data hence there is no need for using return 1 to exit the code
+        }
+        else{
+            prices = temp;
+            temp = NULL;// if you wanna use the numbers from temp again
+        }
+        for (int i = number; i<newNumber; i++){
+        printf("Enter price #%d: ", i+1);
+        scanf("%f", &prices[i]);
+
+     }
+
+    for (int i = 0; i< newNumber; i++){
+        printf("%.2f\t", prices[i]);
+    }
+
+     free(prices);
+     prices = NULL;*/
+
+    printf("DIGITAL WORKING CLOCK   \n");
+    // you require the time.h header file
+    // bool.h and unistd(unixstandard) for a sleep mode.
+    // and windows.h for the sleeping function/ delay for about a second
+
+    time_t rawtime = 0; // int has a limit but for time_t and long can hold a very large number which is what we want to store
+    // Ie: seconds. the time t ussually holds a unix epic of around jan 1 1970.(epich)
+    struct tm *pTime = NULL; // Initialize pointer to NULL to avoid using an uninitialized pointer.Initialize to NULL until localtime() returns a valid struct tm pointer,
+    bool isRunning = true;
+    while (isRunning)
+    {
+        time(&rawtime); // passing our time by refference and not by value to update it
+        // printf("%ld\n", rawtime); to show how many seconds have passed after the epic.
+        pTime = localtime(&rawtime);
+        // printf("%d:%d:%d", (*pTime).tm_hour);//access the timer,dereffernce it then access the hour min or sec
+        printf("\r%02d:%02d:%02d", pTime->tm_hour, pTime->tm_min, pTime->tm_sec); // both will work the same
+        fflush(stdout);
+        Sleep(1000);
+        // this compiler has; provided both the sleep(1for seconds) and Sleep(1000for milliseconds so anycan work.)
+    }
+
     return 0;
 }
