@@ -1,0 +1,16 @@
+Name:Philip Theuri
+ID: 194
+Age: 23
+Subject 1: 68.00
+Subject 2: 77.00
+Subject 3: 81.00
+Average: 75.33
+----------------
+Name:John Mwangi
+ID: 678
+Age: 27
+Subject 1: 68.00
+Subject 2: 90.00
+Subject 3: 56.00
+Average: 71.33
+----------------

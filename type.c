@@ -1077,7 +1077,7 @@ for (int i =0; i <6; i++){
     WEDNESDAY = 4 ,
     THURSDAY = 5 ,
     FRIDAY= 6 ,
-    SATURDAY = 7 
+    SATURDAY = 7
 } Day;
 // For the normal format; its enum datatype{};and the word enum when calling the function
 // we can however change that as done below to remove the need of enum in the int main.
@@ -1153,7 +1153,7 @@ return 0;
 }
 void printStudent(Student student[], int size){
 
-        
+
 for (int i = 0; i<size; i++){
 
   printf("Name:%s\n", student[i].name);//to access a name from a struct use the dot at the end and the name
@@ -1163,8 +1163,8 @@ for (int i = 0; i<size; i++){
   printf("FullTime student:%s\n\n", (student[i].isFullTime)? "Yes":"No");
 }
 }*/
-//Array of structs == array where each element contains a struct{} helps 
-// organize and group together related data.
+// Array of structs == array where each element contains a struct{} helps
+//  organize and group together related data.
 /*typedef struct {
     char model[25];
     int year;
@@ -1184,14 +1184,14 @@ for (int i= 0; i<sizeof(cars)/sizeof(cars[0]); i++){
 }
     return 0;
 }*/
- 
-void birthday(int *age);
+
+/*void birthday(int *age);
 int main(){
 
  //pointer = a variablee that stores the memory address of another variable
  // they help in avoiding wasting memory by allowing you to pass the address
  //   if a larger data structure instead of copying the entire data.
- 
+
  int age = 20;
 // to print the memory address, use: printf("%p", &age);
 int*pAge= &age;//the aesteric is a direfference operator.
@@ -1207,5 +1207,70 @@ void birthday(int*age//passing by refference using the pointer
     ){//if we pass the int ageitself, it won't work as we're passing by value and no changes will take place.
         (*age)++;//we derreference the age then increase it by one.
     }
+*/
+// How to open a file in c and using a pointer.
+int main()
+{
+    /* FILE *pFile= fopen("C:\\Users\\lenovo\\OneDrive\\Desktop\\Student.txt", "w");//w is for writting on the code
+     // while if you use r it will be for reading the file
+ char text[] = "First pointer and file";
+     if (pFile == NULL){
+         printf("Error opening file\n");
+         return 1;
+     }
+     fprintf(pFile, "%s", text);
+     printf("File was written succesfully");
+     // its important to close your file after getting done with it.
+     fclose(pFile);*/
+
+    // READING FROM A POINTER
+    /*FILE *pFile = fopen("C:\\Users\\lenovo\\OneDrive\\Desktop\\sstudent.txt", "r");
+    char buffer[1024] = {0};
+    if (pFile == NULL)
+    {
+        printf("Could not open the file\n");
+        return 1;
+    }
+    while (fgets(buffer, sizeof(buffer), pFile) != NULL)
+    {
+        printf("%s", buffer);
+    }*/
 
 
+
+
+
+    //Malloc() = A function on C that dynamically allocates a specified numbers of bytes in memory.
+    // For an array,you need to specify the number of elements you want to store which may be a probles
+    //  especially if you don't know the number of elements or tests you want to store.
+    // that's where a Malloc comes in to help you store a certain number of bites\storage
+    //    that you will  pass down to a later time when you're sure of the number of elements you want to store
+/*int number = 0;
+// stdlib.h
+printf("Enter the number of grades: ");
+scanf("%d", &number);
+    float *grades = malloc(number * sizeof(float));// this stt determines the amount of storage space that
+    // will be set aside for the elemnts to be keyed in by the user.
+// A segmentation fault occurs when a program attempts to acces a memory location that is 
+//      not allowed to acces or attempts to access a memory location that is not allowed
+// for example trying to write a read- only location, or to overwrite part of the operating system.
+
+if(grades == NULL){
+printf("Memory allocation failed!\n");
+return 1;
+}
+
+for(int i = 0; i< number; i++)// by working with the size of arrays this won't work 
+// that's why we're turning to using numbers instead of sizeof(numbers)
+{
+   printf("Enter grade number %d: ", i+1);
+   scanf(" %f", &grades[i]);// this prompts the user to enter the numbers as he/ she had indicated earlier in the array 
+}
+for (int i =  0; i< number; i++){
+    printf("%.0f ", grades[i]);
+}
+    
+    free(grades);// returning "rented" space back to the operating system.Freeing the space.
+    grades = NULL; */// returning the key to avoid dangling pointer- resetting the pointer.
+    return 0;
+}

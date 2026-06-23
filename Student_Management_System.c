@@ -217,25 +217,25 @@ int main()
         {
         case 1:
             addStudent();
-            FILE *file;                        // to declare a file pointer variable named file,which will be used to handle file operations such as openning,reading,writting and closing files in the program
-            file = fopen("students.txt", "a"); // to open a file named "students.txt" in append mode("a"),which allows us to add new data to the end of the file without overwritting existing data
-            if (file == NULL)
+            FILE *pFile = fopen("C:\\Users\\lenovo\\OneDrive\\Desktop\\students.txt", "a"); // to open a file named "students.txt" in append mode("a"),which allows us to add new data to the end of the file without overwritting existing data
+   // to declare a file pointer variable named file,which will be used to handle file operations such as openning,reading,writting and closing files in the program
+            if (pFile == NULL)
             {
                 printf("ERROR OPENING FILE!\n");
                 break;
             }
-            fprintf(file, "Name:%s\n", students[count - 1].name);
-            fprintf(file, "ID: %d\n", students[count - 1].id);
-            fprintf(file, "Age: %d\n", students[count - 1].age);
-            fprintf(file, "Subject 1: %.2f\n", students[count - 1].subject1);
+            fprintf(pFile, "Name:%s\n", students[count - 1].name);
+            fprintf(pFile, "ID: %d\n", students[count - 1].id);
+            fprintf(pFile, "Age: %d\n", students[count - 1].age);
+            fprintf(pFile, "Subject 1: %.2f\n", students[count - 1].subject1);
 
-            fprintf(file, "Subject 2: %.2f\n", students[count - 1].subject2);
+            fprintf(pFile, "Subject 2: %.2f\n", students[count - 1].subject2);
 
-            fprintf(file, "Subject 3: %.2f\n", students[count - 1].subject3);
+            fprintf(pFile, "Subject 3: %.2f\n", students[count - 1].subject3);
 
-            fprintf(file, "Average: %.2f\n", students[count - 1].average);
-            fprintf(file, "----------------\n");
-            fclose(file); // to close the file after we are done writing to it,which is important to free up system resources and ensure that all data is properly saved to the file
+            fprintf(pFile, "Average: %.2f\n", students[count - 1].average);
+            fprintf(pFile, "----------------\n");
+            fclose(pFile); // to close the file after we are done writing to it,which is important to free up system resources and ensure that all data is properly saved to the file
             break;
         case 2:
             displayStudents();
