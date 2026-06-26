@@ -1,4 +1,5 @@
 #include <stdio.h>
+void increament(int *p);
 int main()
 { /*
 int i, a[10];
@@ -115,5 +116,30 @@ return 0;
      }
 
      printf("\n");*/
+     /*
+     
+     int a = 1025;
+    int  *p ;
+     p  = &a;
+     *p= 21;
+     int **q;
+     q =&p;
+    
+
+     printf("the size of intergers is %d bytes, %d\n", sizeof(char), a);
+     printf("address = %d, value = %d, third value = %d, variable address = %d\n", p, *p, *(*q), q);
+      **q = 2380;
+      printf("q=%d", **q);*/
+
+      // pointers as function arguments-call refference.
+      //passing by reference
+      int a= 12;
+    
+increament (&a);
+printf("a =  %d", a);
     return 0;
+}
+void increament(int *p){
+*p =(*p)+1;
+
 }
