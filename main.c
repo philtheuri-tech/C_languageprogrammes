@@ -1,7 +1,8 @@
 #include <stdio.h>
-void increament(int *p);
-int main()
-{ /*
+//void increament(int *p);
+//int main()
+//{
+     /*
 int i, a[10];
 for (i=0; i<10; i++);
 {
@@ -133,13 +134,28 @@ return 0;
 
       // pointers as function arguments-call refference.
       //passing by reference
-      int a= 12;
+      //int a= 12;
     
-increament (&a);
-printf("a =  %d", a);
-    return 0;
-}
-void increament(int *p){
+//increament (&a);
+//printf("a =  %d", a);
+    //return 0;
+//}
+/*void increament(int *p){
 *p =(*p)+1;
 
+}*/
+//pointers in function call
+int sumOfElements(int *A, int size){
+    int i, sum= 0;
+for (i= 0; i<size;i++){
+    sum+= A[i];
+}
+return sum;
+}
+int main(){
+    int A[] = {1,2,3,4,5};
+    int size = sizeof(A)/ sizeof(A[0]);
+    int total = sumOfElements(A, size);
+    printf("Sum of Elemnts  = %d\n", total);
+    return 0;
 }
