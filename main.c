@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 //void increament(int *p);
 //int main()
 //{
@@ -145,7 +146,7 @@ return 0;
 
 }*/
 //pointers in function call
-int sumOfElements(int *A, int size){
+/*int sumOfElements(int *A, int size){
     int i, sum= 0;
 for (i= 0; i<size;i++){
     sum+= A[i];
@@ -158,4 +159,42 @@ int main(){
     int total = sumOfElements(A, size);
     printf("Sum of Elemnts  = %d\n", total);
     return 0;
+}*/
+//Arrays are passed to a function  by reference only
+/*void print(char *C){
+int i = 0;
+while(C[i] != '\0')
+{printf("%c", C[i]);
+i++;
+
+}
+printf("\n");
+}
+int main(){
+char C[20]= "Hello";
+print(C);
+
+
+    
+    return 0 ;
+}*/
+//character arrays and pointers.
+/*void print(char *C){
+
+    while(*C != '\0')
+    {
+        printf("%c", *C);
+        C++;
+    }
+    printf("\n");
+}
+int main(){
+char C[20] = "Hello";
+print(C);
+    return 0 ;
+}*/
+//pointers and multidimensional arrays
+int main(){
+
+    
 }
