@@ -1,4 +1,4 @@
-#include <stdio.h>
+  #include <stdio.h>
 #include <string.h>
 //void increament(int *p);
 //int main()
@@ -109,7 +109,7 @@ return 0;
          scanf("%d", &numbers[i]);
      }
 
-     printf("\nThe numbers in reverse order are:\n");
+     printf("\nThe numbers in  order are:\n");
 
      // Loop 2: Printing in reverse
      // We start at index 9 (the last item) and go down to 0
@@ -119,14 +119,14 @@ return 0;
 
      printf("\n");*/
      /*
-     
+
      int a = 1025;
     int  *p ;
      p  = &a;
      *p= 21;
      int **q;
      q =&p;
-    
+
 
      printf("the size of intergers is %d bytes, %d\n", sizeof(char), a);
      printf("address = %d, value = %d, third value = %d, variable address = %d\n", p, *p, *(*q), q);
@@ -136,7 +136,7 @@ return 0;
       // pointers as function arguments-call refference.
       //passing by reference
       //int a= 12;
-    
+
 //increament (&a);
 //printf("a =  %d", a);
     //return 0;
@@ -175,7 +175,7 @@ char C[20]= "Hello";
 print(C);
 
 
-    
+
     return 0 ;
 }*/
 //character arrays and pointers.
@@ -194,7 +194,8 @@ print(C);
     return 0 ;
 }*/
 //pointers and multidimensional arrays
-int main(){
 
-    
-}
+int main(
+         printf("I am Philip Theuri");
+         reutrn 0;
+         )
