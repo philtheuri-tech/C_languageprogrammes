@@ -1252,8 +1252,7 @@ int main()
     // A segmentation fault occurs when a program attempts to acces a memory location that is
     //      not allowed to acces or attempts to access a memory location that is not allowed
     // for example trying to write a read- only location, or to overwrite part of the operating system.
-
-    if(grades == NULL){
+if (grades == NULL){
     printf("Memory allocation failed!\n");
     return 1;
     }
@@ -1272,6 +1271,11 @@ int main()
         grades = NULL; */
     // returning the key to avoid dangling pointer- resetting the pointer.
     // printf("THE END----------\n");
+
+
+
+
+
     // printf("Calloc:CONTIGIOUS ALLOCATION---\n");
     //  calloc---- CONTIGIOUS ALLOCATION
     //  Allocates memory and sets all allocated bytes to 0(zero)

@@ -1,43 +1,361 @@
-// Program for Bubble Sort:
-//#include <stdio.h>
-/*void bubblesort(int x[], int n)
-{
-    int i, j, t;
-    for (i = 0; i < n - 1; i++)
-    {
-        for (j = 0; j < n - i - 1; j++)
-        {
-            if (x[j] > x[j + 1])
-            {
-                t = x[j];
-                x[j] = x[j + 1];
-                x[j + 1] = t;
+/*Code for the Implementation of Single Linked List
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+typedef struct Node Node;
+
+Node *start = NULL;
+
+// Create a new node
+Node *getNode(void) {
+    Node *newNode = malloc(sizeof(Node));
+
+    if (newNode == NULL) {
+        printf("Memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Enter data: ");
+    scanf("%d", &newNode->data);
+
+    newNode->next = NULL;
+
+    return newNode;
+}
+
+// Count the number of nodes
+int countNode(Node *ptr) {
+    int count = 0;
+
+    while (ptr != NULL) {
+        count++;
+        ptr = ptr->next;
+    }
+
+    return count;
+}
+
+// Create a list 
+void createList(int n) {
+    int i;
+    Node *newNode;
+    Node *temp;
+
+    for (i = 0; i < n; i++) {
+        newNode = getNode();
+
+        if (start == NULL) {
+            start = newNode;
+        } else {
+            temp = start;
+
+            while (temp->next != NULL) {
+                temp = temp->next;
             }
+
+            temp->next = newNode;
         }
     }
 }
-int main()
-{
-    int i, n, x[25];
 
-    printf("\n Enter the number of elements: ");
-    scanf("%d", &n);
-    printf("\n Enter The elements:");
-    for (i = 0; i < n; i++)
-    {
-        scanf("%d", &x[i]);
+//Display list from left to right 
+void traverse(void) {
+    Node *temp = start;
+
+    if (start == NULL) {
+        printf("\nList is empty.\n");
+        return;
     }
-    printf("\nBefore sorting:\n");
-    for (i = 0; i < n; i++)
-    {
-        printf("%5d", x[i]);
+
+    printf("\nList: ");
+
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
     }
-    bubblesort(x, n);
-    printf("\nArray Elements after sorting: ");
-    for (i = 0; i < n; i++)
-        printf("%5d", x[i]);
+
+    printf("NULL\n");
+}
+
+// Display list from right to left using recursion 
+void reverseTraverse(Node *ptr) {
+    if (ptr == NULL) {
+        return;
+    }
+
+    reverseTraverse(ptr->next);
+    printf("%d -> ", ptr->data);
+}
+
+// Insert at beginning 
+void insertAtBeginning(void) {
+    Node *newNode = getNode();
+
+    newNode->next = start;
+    start = newNode;
+
+    printf("Node inserted at beginning.\n");
+}
+
+//Insert at end 
+void insertAtEnd(void) {
+    Node *newNode = getNode();
+
+    if (start == NULL) {
+        start = newNode;
+    } else {
+        Node *temp = start;
+
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+
+        temp->next = newNode;
+    }
+
+    printf("Node inserted at end.\n");
+}
+
+// Insert at a specified middle position
+void insertAtMiddle(void) {
+    int position;
+    int nodeCount;
+    int counter = 1;
+
+    Node *newNode;
+    Node *temp;
+    Node *previous;
+
+    nodeCount = countNode(start);
+
+    printf("Enter position: ");
+    scanf("%d", &position);
+
+    if (position <= 1 || position >= nodeCount) {
+        printf("Position must be between 2 and %d.\n", nodeCount);
+        return;
+    }
+
+    newNode = getNode();
+
+    temp = start;
+    previous = NULL;
+
+    while (counter < position) {
+        previous = temp;
+        temp = temp->next;
+        counter++;
+    }
+
+    previous->next = newNode;
+    newNode->next = temp;
+
+    printf("Node inserted at position %d.\n", position);
+}
+
+// Delete from beginning 
+void deleteAtBeginning(void) {
+    Node *temp;
+
+    if (start == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    temp = start;
+    start = start->next;
+
+    printf("Deleted node: %d\n", temp->data);
+
+    free(temp);
+}
+
+// Delete from end 
+void deleteAtEnd(void) {
+    Node *temp;
+    Node *previous;
+
+    if (start == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    //Only one node 
+    if (start->next == NULL) {
+        printf("Deleted node: %d\n", start->data);
+        free(start);
+        start = NULL;
+        return;
+    }
+
+    temp = start;
+    previous = NULL;
+
+    while (temp->next != NULL) {
+        previous = temp;
+        temp = temp->next;
+    }
+
+    previous->next = NULL;
+
+    printf("Deleted node: %d\n", temp->data);
+
+    free(temp);
+}
+
+//Delete from a specified middle position 
+void deleteAtMiddle(void) {
+    int position;
+    int nodeCount;
+    int counter = 1;
+
+    Node *temp;
+    Node *previous;
+
+    if (start == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    nodeCount = countNode(start);
+
+    printf("Enter position to delete: ");
+    scanf("%d", &position);
+
+    if (position <= 1 || position >= nodeCount) {
+        printf("Position must be between 2 and %d.\n", nodeCount);
+        return;
+    }
+
+    temp = start;
+    previous = NULL;
+
+    while (counter < position) {
+        previous = temp;
+        temp = temp->next;
+        counter++;
+    }
+
+    previous->next = temp->next;
+
+    printf("Deleted node: %d\n", temp->data);
+
+    free(temp);
+}
+
+ //Display menu 
+int menu(void) {
+    int choice;
+
+    printf("\n====================================\n");
+    printf("       SINGLY LINKED LIST\n");
+    printf("====================================\n");
+    printf("1. Create a list\n");
+    printf("2. Insert at beginning\n");
+    printf("3. Insert at end\n");
+    printf("4. Insert at middle\n");
+    printf("5. Delete from beginning\n");
+    printf("6. Delete from end\n");
+    printf("7. Delete from middle\n");
+    printf("8. Traverse left to right\n");
+    printf("9. Traverse right to left\n");
+    printf("10. Count nodes\n");
+    printf("11. Exit\n");
+    printf("====================================\n");
+    printf("Enter your choice: ");
+
+    scanf("%d", &choice);
+
+    return choice;
+}
+
+int main(void) {
+    int choice;
+    int numberOfNodes;
+
+    while (1) {
+        choice = menu();
+
+        switch (choice) {
+
+            case 1:
+                if (start == NULL) {
+                    printf("Number of nodes to create: ");
+                    scanf("%d", &numberOfNodes);
+
+                    if (numberOfNodes <= 0) {
+                        printf("Number of nodes must be greater than 0.\n");
+                    } else {
+                        createList(numberOfNodes);
+                        printf("List created successfully.\n");
+                    }
+                } else {
+                    printf("List already exists.\n");
+                }
+                break;
+
+            case 2:
+                insertAtBeginning();
+                break;
+
+            case 3:
+                insertAtEnd();
+                break;
+
+            case 4:
+                insertAtMiddle();
+                break;
+
+            case 5:
+                deleteAtBeginning();
+                break;
+
+            case 6:
+                deleteAtEnd();
+                break;
+
+            case 7:
+                deleteAtMiddle();
+                break;
+
+            case 8:
+                traverse();
+                break;
+
+            case 9:
+                if (start == NULL) {
+                    printf("List is empty.\n");
+                } else {
+                    printf("\nList in reverse: ");
+                    reverseTraverse(start);
+                    printf("NULL\n");
+                }
+                break;
+
+            case 10:
+                printf("Number of nodes: %d\n", countNode(start));
+                break;
+
+            case 11:
+                printf("Exiting program...\n");
+                return 0;
+
+            default:
+                printf("Invalid choice.\n");
+        }
+    }
+
     return 0;
 }
+
+Exercise
+1.	Implement a search function that tells the user whether a value exists and returns the position as well.
+2.	Modify the delete function to delete a number you provide, instead of asking for the position. So instead of having the delete from beginning, middle or end, you have a new delete function that deletes a number you give it. 
 */
 //singly linked lists implementation in c
 #include <stdio.h>
@@ -198,26 +516,9 @@ void insertAtMiddle(void) {
 
     printf("Node inserted at position %d.\n", position);
 }
-
-/* Delete from beginning */
-void deleteAtBeginning(void) {
-    Node *temp;
-
-    if (start == NULL) {
-        printf("List is empty.\n");
-        return;
-    }
-
-    temp = start;
-    start = start->next;
-
-    printf("Deleted node: %d\n", temp->data);
-
-    free(temp);
-}
-
-/* Delete from end */
-void deleteAtEnd(void) {
+/* Delete a node containing a specified value */
+void deleteNode(void) {
+    int value;
     Node *temp;
     Node *previous;
 
@@ -226,69 +527,58 @@ void deleteAtEnd(void) {
         return;
     }
 
-    /* Only one node */
-    if (start->next == NULL) {
-        printf("Deleted node: %d\n", start->data);
-        free(start);
-        start = NULL;
-        return;
-    }
+    printf("Enter value to delete: ");
+    scanf("%d", &value);
 
     temp = start;
     previous = NULL;
 
-    while (temp->next != NULL) {
+    while (temp != NULL) {
+        if (temp->data == value) {
+            /* Deleting the first node */
+            if (previous == NULL) {
+                start = temp->next;
+            } else {
+                previous->next = temp->next;
+            }
+
+            printf("Deleted node: %d\n", temp->data);
+            free(temp);
+            return;
+        }
+
         previous = temp;
         temp = temp->next;
     }
 
-    previous->next = NULL;
-
-    printf("Deleted node: %d\n", temp->data);
-
-    free(temp);
+    printf("%d not found in the list.\n", value);
 }
-
-/* Delete from a specified middle position */
-void deleteAtMiddle(void) {
-    int position;
-    int nodeCount;
-    int counter = 1;
-
-    Node *temp;
-    Node *previous;
+/* Search for a value */
+void search(void) {
+    int value;
+    int position = 1;
+    Node *temp = start;
 
     if (start == NULL) {
         printf("List is empty.\n");
         return;
     }
 
-    nodeCount = countNode(start);
+    printf("Enter value to search: ");
+    scanf("%d", &value);
 
-    printf("Enter position to delete: ");
-    scanf("%d", &position);
+    while (temp != NULL) {
+        if (temp->data == value) {
+            printf("%d found at position %d.\n", value, position);
+            return;
+        }
 
-    if (position <= 1 || position >= nodeCount) {
-        printf("Position must be between 2 and %d.\n", nodeCount);
-        return;
-    }
-
-    temp = start;
-    previous = NULL;
-
-    while (counter < position) {
-        previous = temp;
         temp = temp->next;
-        counter++;
+        position++;
     }
 
-    previous->next = temp->next;
-
-    printf("Deleted node: %d\n", temp->data);
-
-    free(temp);
+    printf("%d not found in the list.\n", value);
 }
-
 /* Display menu */
 int menu(void) {
     int choice;
@@ -300,13 +590,12 @@ int menu(void) {
     printf("2. Insert at beginning\n");
     printf("3. Insert at end\n");
     printf("4. Insert at middle\n");
-    printf("5. Delete from beginning\n");
-    printf("6. Delete from end\n");
-    printf("7. Delete from middle\n");
-    printf("8. Traverse left to right\n");
-    printf("9. Traverse right to left\n");
-    printf("10. Count nodes\n");
-    printf("11. Exit\n");
+    printf("5. Delete a value\n");
+    printf("6. Traverse left to right\n");
+    printf("7. Traverse right to left\n");
+    printf("8. Count nodes\n");
+    printf("9. Search\n");
+    printf("10. Exit\n");
     printf("====================================\n");
     printf("Enter your choice: ");
 
@@ -353,22 +642,14 @@ int main(void) {
                 break;
 
             case 5:
-                deleteAtBeginning();
+                deleteNode();
                 break;
 
             case 6:
-                deleteAtEnd();
-                break;
-
-            case 7:
-                deleteAtMiddle();
-                break;
-
-            case 8:
                 traverse();
                 break;
 
-            case 9:
+            case 7:
                 if (start == NULL) {
                     printf("List is empty.\n");
                 } else {
@@ -377,263 +658,16 @@ int main(void) {
                     printf("NULL\n");
                 }
                 break;
-
-            case 10:
+            case 8:
+                search();
+                break;
+            case 9:
                 printf("Number of nodes: %d\n", countNode(start));
                 break;
 
-            case 11:
-                printf("Exiting program...\n");
-                return 0;
+         
 
-            default:
-                printf("Invalid choice.\n");
-        }
-    }
-
-    return 0;
-}
-
-Exercise
-1.	Implement a search function that tells the user whether a value exists and returns the position as well.
-2.	Modify the delete function to delete a number you provide, instead of asking for the position. So instead of having the delete from beginning, middle or end, you have a new delete function that deletes a number you give it. 
-
-
-Code Implementation for Stacks in C
-#include <stdio.h>
-#include <stdlib.h>
-
-#define MAXSIZE 5
-
-int stack[MAXSIZE];
-int top = -1;
-
-/* Push an element onto the stack */
-void push(void) {
-    int value;
-
-    if (top == MAXSIZE - 1) {
-        printf("\nStack Overflow! Stack is full.\n");
-        return;
-    }
-
-    printf("Enter value to push: ");
-    scanf("%d", &value);
-
-    top++;
-    stack[top] = value;
-
-    printf("%d pushed onto the stack.\n", value);
-}
-
-/* Remove an element from the stack */
-void pop(void) {
-    if (top == -1) {
-        printf("\nStack Underflow! Stack is empty.\n");
-        return;
-    }
-
-    printf("%d popped from the stack.\n", stack[top]);
-
-    top--;
-}
-
-/* Display stack */
-void display(void) {
-    int i;
-
-    if (top == -1) {
-        printf("\nStack is empty.\n");
-        return;
-    }
-
-    printf("\nStack elements:\n");
-
-    for (i = top; i >= 0; i--) {
-        printf("%d\n", stack[i]);
-    }
-}
-
-/* View top element */
-void peek(void) {
-    if (top == -1) {
-        printf("\nStack is empty.\n");
-        return;
-    }
-
-    printf("\nTop element: %d\n", stack[top]);
-}
-
-int main(void) {
-    int choice;
-
-    while (1) {
-
-        printf("\n====================================\n");
-        printf("             STACK\n");
-        printf("====================================\n");
-        printf("1. PUSH\n");
-        printf("2. POP\n");
-        printf("3. DISPLAY\n");
-        printf("4. PEEK\n");
-        printf("5. EXIT\n");
-        printf("====================================\n");
-        printf("Enter your choice: ");
-
-        scanf("%d", &choice);
-
-        switch (choice) {
-
-            case 1:
-                push();
-                break;
-
-            case 2:
-                pop();
-                break;
-
-            case 3:
-                display();
-                break;
-
-            case 4:
-                peek();
-                break;
-
-            case 5:
-                printf("Exiting program...\n");
-                return 0;
-
-            default:
-                printf("Invalid choice.\n");
-        }
-    }
-
-    return 0;
-}
-
-Exercise
-1.	Implement isEmpty() function that returns 1 if stack is empty and 0 if stack is not empty, then modify the pop() function to use isEmpty().
-
-//Code implementation of Queues in C
-#include <stdio.h>
-#include <stdlib.h>
-
-#define MAXSIZE 5
-
-int queue[MAXSIZE];
-
-int front = -1;
-int rear = -1;
-
-/* Insert an element into the queue */
-void enqueue(void) {
-    int value;
-
-    if (rear == MAXSIZE - 1) {
-        printf("\nQueue Overflow! Queue is full.\n");
-        return;
-    }
-
-    printf("Enter value to insert: ");
-    scanf("%d", &value);
-
-    rear++;
-    queue[rear] = value;
-
-    if (front == -1) {
-        front = 0;
-    }
-
-    printf("%d inserted into the queue.\n", value);
-}
-
-/* Delete an element from the queue */
-void dequeue(void) {
-    int value;
-
-    if (front == -1) {
-        printf("\nQueue Underflow! Queue is empty.\n");
-        return;
-    }
-
-    value = queue[front];
-
-    printf("%d deleted from the queue.\n", value);
-
-    front++;
-
-    if (front > rear) {
-        front = -1;
-        rear = -1;
-    }
-}
-
-/* Display queue */
-void display(void) {
-    int i;
-
-    if (front == -1) {
-        printf("\nQueue is empty.\n");
-        return;
-    }
-
-    printf("\nQueue elements:\n");
-
-    for (i = front; i <= rear; i++) {
-        printf("%d ", queue[i]);
-    }
-
-    printf("\n");
-}
-
-/* View the front element */
-void peek(void) {
-    if (front == -1) {
-        printf("\nQueue is empty.\n");
-        return;
-    }
-
-    printf("\nFront element: %d\n", queue[front]);
-}
-
-int main(void) {
-    int choice;
-
-    while (1) {
-
-        printf("\n====================================\n");
-        printf("          LINEAR QUEUE\n");
-        printf("====================================\n");
-        printf("1. ENQUEUE\n");
-        printf("2. DEQUEUE\n");
-        printf("3. DISPLAY\n");
-        printf("4. PEEK\n");
-        printf("5. EXIT\n");
-        printf("====================================\n");
-        printf("Enter your choice: ");
-
-        scanf("%d", &choice);
-
-        switch (choice) {
-
-            case 1:
-                enqueue();
-                break;
-
-            case 2:
-                dequeue();
-                break;
-
-            case 3:
-                display();
-                break;
-
-            case 4:
-                peek();
-                break;
-
-            case 5:
+            case 10:
                 printf("Exiting program...\n");
                 return 0;
 
